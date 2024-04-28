@@ -1,29 +1,52 @@
-<template>
-  <pv-card>
-    <template #content>
-      <p>{{ terrain.description }}</p>
-      <p>{{ terrain.usageClauses }}</p>
-      <p>Size: {{ terrain.sizeSquareMeters }} square meters</p>
-    </template>
-  </pv-card>
-</template>
-
 <script>
 
 import {Terrain} from "@/terrains/model/terrain.entity.js";
 
 export default {
   name: "terrain-card",
-
   props: {
     terrain: Terrain // Propiedad para pasar los datos del terreno
+  },
+  methods: {
+    handleClick() {
+      this.$emit('terrain-clicked', this.terrain.id);
+    }
   }
 };
 </script>
 
-<style scoped>
-/* Estilos específicos para la tarjeta */
-.md-card {
-  /* Personaliza según tus necesidades */
+
+<template>
+
+    <div class="card-container" >
+      <pv-card class="pv-card" style="width: 20rem; overflow: hidden" @click="handleClick">
+        <template #header>
+          <img class="image" :alt="terrain.name" :src="terrain.image">
+        </template>
+        <template #title>{{terrain.name}}</template>
+        <template #subtitle>{{terrain.id}}</template>
+      </pv-card>
+    </div>
+</template>
+
+
+
+<style >
+
+.image {
+  max-width: 100%;
+  height: auto;
+
 }
+
+.card-container {
+
+}
+
+.pv-card{
+  text-align: center;
+}
+
+
+
 </style>

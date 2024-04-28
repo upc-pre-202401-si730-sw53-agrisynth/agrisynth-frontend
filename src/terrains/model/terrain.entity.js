@@ -1,6 +1,7 @@
 
 export class Terrain {
-    constructor(name = '', description = '', location = '', usageClauses = '', sizeSquareMeters = 0, image = '') {
+    constructor(id= 0, name = '', description = '', location = '', usageClauses = '', sizeSquareMeters = 0, image = '') {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.location = location;
