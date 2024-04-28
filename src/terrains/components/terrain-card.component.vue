@@ -2,8 +2,8 @@
 
 import {Terrain} from "@/terrains/model/terrain.entity.js";
 
+
 export default {
-  name: "terrain-card",
   props: {
     terrain: Terrain // Propiedad para pasar los datos del terreno
   },
@@ -17,16 +17,16 @@ export default {
 
 
 <template>
-
     <div class="card-container" >
       <pv-card class="pv-card" style="width: 20rem; overflow: hidden" @click="handleClick">
         <template #header>
           <img class="image" :alt="terrain.name" :src="terrain.image">
         </template>
         <template #title>{{terrain.name}}</template>
-        <template #subtitle>{{terrain.id}}</template>
       </pv-card>
+
     </div>
+
 </template>
 
 
