@@ -1,0 +1,59 @@
+{
+  "terrains": [
+    {
+      "id": 1,
+      "name": "Sunshine Farm",
+      "description": "Fertile land with good drainage and water access.",
+      "location": "Main Street, City X",
+      "usageClauses": "Only for organic vegetable cultivation. No use of chemical pesticides.",
+      "sizeSquareMeters": 20234,
+      "image": "https://img10.naventcdn.com/avisos/resize/11/01/42/32/45/72/1200x1200/1351713741.jpg?isFirstImage=true"
+    },
+    {
+      "id": 2,
+      "name": "Hope Estate",
+      "description": "Large land with well-fertilized soil and irrigation system.",
+      "location": "Main Road, City Y",
+      "usageClauses": "Allowed for cultivation of all types of crops. Must respect crop rotation.",
+      "sizeSquareMeters": 40468,
+      "image": "https://img10.naventcdn.com/avisos/resize/11/00/66/14/80/55/1200x1200/355757231.jpg?isFirstImage=true"
+    },
+    {
+      "id": 3,
+      "name": "Flower Ranch",
+      "description": "Land with warm climate ideal for tropical fruit cultivation.",
+      "location": "Central Avenue, City Z",
+      "usageClauses": "Exclusive use for tropical fruit cultivation. No heavy machinery allowed.",
+      "sizeSquareMeters": 32374,
+      "image": "image3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Green Fields",
+      "description": "Flat land with excellent soil composition and nearby water source.",
+      "location": "Rural Route 1, City A",
+      "usageClauses": "Suitable for a variety of crops. No restrictions on pesticide use.",
+      "sizeSquareMeters": 25000,
+      "image": "image4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Mountain View Farm",
+      "description": "Sloped terrain with rich soil and natural irrigation.",
+      "location": "Mountain Road, City B",
+      "usageClauses": "Recommended for vineyards and orchards. No chemical fertilizers allowed.",
+      "sizeSquareMeters": 30000,
+      "image": "image5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Riverfront Estate",
+      "description": "Land bordering a river, perfect for rice paddies and aquaculture.",
+      "location": "Riverfront Drive, City C",
+      "usageClauses": "Reserved for rice cultivation and fish farming. No hunting or fishing allowed.",
+      "sizeSquareMeters": 15000,
+      "image": "image6.jpg"
+    }
+  ]
+
+}
