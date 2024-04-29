@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // URL base para la API falsa de terrenos
-const BASE_URL = 'http://localhost:4000';
+const BASE_URL = 'http://localhost:3000';
 
 // Método para obtener todos los terrenos
 export const getAllTerrains = async () => {

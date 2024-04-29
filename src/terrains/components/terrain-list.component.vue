@@ -46,62 +46,62 @@ export default defineComponent({
 <template>
 
   <div class="terrain-list">
-    <h1>Terrenos disponibles</h1>
+    <h1>Terrain Available</h1>
     <div class="terrain-card-container">
       <terrain-card v-for="terrain in terrains" :key="terrain.id" :terrain="terrain" @terrain-clicked="handleTerrainClick" />
     </div>
   </div>
 
   <div>
-    <pv-dialog class="pv-dialog" v-model:visible="dialogVisible" modal @md-closed="closeDialog"   :draggable="false" header="Más detalles" >
+    <pv-dialog class="pv-dialog" v-model:visible="dialogVisible" modal @md-closed="closeDialog"   :draggable="false" header="More details" >
       <pv-image :src="selectedTerrain.image" alt="image" width="100%" preview />
       <h2>{{selectedTerrain.name}}</h2>
       <div >
-        <pv-fieldset legend="Descripción">
+        <pv-fieldset legend="Description">
           <p class="m-0">{{selectedTerrain.description}}</p>
         </pv-fieldset>
       </div>
       <div>
-        <pv-fieldset legend="Ubicación">
+        <pv-fieldset legend="Location">
           <p class="m-0">{{selectedTerrain.location}}</p>
         </pv-fieldset>
       </div>
       <div>
-        <pv-fieldset legend="Clausilas de uso">
+        <pv-fieldset legend="Clauses of use">
           <p class="m-0">{{selectedTerrain.usageClauses}}</p>
         </pv-fieldset>
       </div>
       <div>
-        <pv-fieldset legend="Tamaño del area">
-          <p class="m-0">{{selectedTerrain.sizeSquareMeters}} metros cuadrados</p>
+        <pv-fieldset legend="Area size">
+          <p class="m-0">{{selectedTerrain.sizeSquareMeters}} square meter</p>
         </pv-fieldset>
       </div>
       <div class="flex justify-content-center gap-2">
-        <pv-button @click="dialogVisible = false, dialogVisible2 = true">Compra S/{{selectedTerrain.sale}}</pv-button>
-        <pv-button @click="dialogVisible = false, dialogVisible2 = true">Alquiler S/{{selectedTerrain.rent}}</pv-button>
+        <pv-button @click="dialogVisible = false, dialogVisible2 = true">Buy S/{{selectedTerrain.sale}}</pv-button>
+        <pv-button @click="dialogVisible = false, dialogVisible2 = true">Rent S/{{selectedTerrain.rent}}</pv-button>
       </div>
     </pv-dialog>
   </div>
 
   <div>
-    <pv-dialog class="pv-dialog" v-model:visible="dialogVisible2" modal @md-closed="closeDialog"   :draggable="false" header="Formulario" >
+    <pv-dialog class="pv-dialog" v-model:visible="dialogVisible2" modal @md-closed="closeDialog"   :draggable="false" header="Payment form" >
       <div class="flex flex-column gap-2">
-        <label for="username">Nombre completo</label>
+        <label for="username">Full name</label>
         <pv-input-text id="username" v-model="value" aria-describedby="username-help" />
-        <small id="username-help">Digita tus nombres y apellidos.</small>
+        <small id="username-help">Type your full name</small>
       </div>
       <div class="flex flex-column gap-2">
-        <label for="location">Dirección</label>
+        <label for="location">Address</label>
         <pv-input-text id="location" v-model="value" aria-describedby="location-help" />
-        <small id="location-help">Digita la direccion en donde vives.</small>
+        <small id="location-help">Enter the address where you live</small>
       </div>
       <div class="flex flex-column gap-2">
-        <label for="reason">Razón de compra o alquiler</label>
+        <label for="reason">Reason for purchase or rental</label>
         <pv-input-text id="reason" v-model="value" aria-describedby="reason-help" />
-        <small id="reason-help">Digita la razon por la que compras o rentas.</small>
+        <small id="reason-help">Enter the reason why you buy or rent.</small>
       </div>
       <div class="flex justify-content-end gap-2">
-        <pv-button @click="dialogVisible2 = false, dialogVisible3 = true">Iniciar pago</pv-button>
+        <pv-button @click="dialogVisible2 = false, dialogVisible3 = true">Start pay</pv-button>
       </div>
     </pv-dialog>
   </div>
@@ -109,24 +109,24 @@ export default defineComponent({
   <div>
     <pv-dialog class="pv-dialog" v-model:visible="dialogVisible3" modal @md-closed="closeDialog"   :draggable="false" header="Más detalles" >
       <div class="flex flex-column gap-2">
-        <label for="username">Numero de tarjeta</label>
-        <pv-input-text id="username" v-model="value" aria-describedby="username-help" />
+        <label for="card-number">Card number</label>
+        <pv-input-text id="cardnumber" v-model="value" aria-describedby="cardnumber-help" />
       </div>
       <div class="flex flex-column gap-2">
-        <label for="username">Nombres y apellidos</label>
-        <pv-input-text id="username" v-model="value" aria-describedby="username-help" />
+        <label for="cardname">Name in card</label>
+        <pv-input-text id="cardname" v-model="value" aria-describedby="cardname-help" />
       </div>
       <div class="flex flex-column gap-2">
-        <label for="username">Expiracion</label>
-        <pv-input-text id="username" v-model="value" aria-describedby="username-help" />
+        <label for="expiration">Expiration date</label>
+        <pv-input-text id="expiration" v-model="value" aria-describedby="expiration-help" />
       </div>
       <div class="flex flex-column gap-2">
-        <label for="username">Codigo</label>
-        <pv-input-text id="username" v-model="value" aria-describedby="username-help" />
+        <label for="code">Security code</label>
+        <pv-input-text id="code" v-model="value" aria-describedby="code-help" />
       </div>
-      <p>Monto total a pagar S/{{selectedTerrain.sale}}</p>
+      <p>Amount payable S/{{selectedTerrain.sale}}</p>
       <div class="flex justify-content-end gap-2">
-        <pv-button @click="dialogVisible3 = false">Pagar</pv-button>
+        <pv-button @click="dialogVisible3 = false">Pay</pv-button>
       </div>
     </pv-dialog>
   </div>
