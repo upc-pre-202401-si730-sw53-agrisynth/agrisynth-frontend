@@ -17,15 +17,13 @@ export default {
 
 
 <template>
-    <div class="card-container" >
-      <pv-card class="pv-card" style="width: 20rem; overflow: hidden" @click="handleClick">
+
+      <pv-card class="md-card pv-card-container" style="width: 20rem; overflow: hidden" @click="handleClick">
         <template #header>
           <img class="image" :alt="terrain.name" :src="terrain.image">
         </template>
         <template #title>{{terrain.name}}</template>
       </pv-card>
-
-    </div>
 
 </template>
 
@@ -38,13 +36,23 @@ export default {
   height: auto;
 
 }
+.md-card {
+  border-radius: 5px;
 
-.card-container {
+  transition: box-shadow 0.3s ease;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 
 }
 
+.pv-card-container {
+  width:90%;
+  max-width:30rem;
+}
+
 .pv-card{
-  text-align: center;
+
 }
 
 

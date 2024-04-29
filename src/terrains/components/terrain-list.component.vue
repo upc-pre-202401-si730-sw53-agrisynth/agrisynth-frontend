@@ -45,6 +45,12 @@ export default defineComponent({
 
 <template>
 
+  <div class="terrain-list">
+    <h1>Terrenos disponibles</h1>
+    <div class="terrain-card-container">
+      <terrain-card v-for="terrain in terrains" :key="terrain.id" :terrain="terrain" @terrain-clicked="handleTerrainClick" />
+    </div>
+  </div>
 
   <div>
     <pv-dialog class="pv-dialog" v-model:visible="dialogVisible" modal @md-closed="closeDialog"   :draggable="false" header="Más detalles" >
@@ -125,20 +131,23 @@ export default defineComponent({
     </pv-dialog>
   </div>
 
-  <div>
-    <terrain-card v-for="terrain in terrains" :key="terrain.id" :terrain="terrain" @terrain-clicked="handleTerrainClick" />
-  </div>
-
-
-
 </template>
 
 <style >
-
+.terrain-list {
+  padding: 20px;
+}
+.terrain-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 70px;
+}
+@media (max-width: 767px) {
+  .terrain-card-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
 .pv-dialog {
   width: 40rem;
-}
-.pv-float-label{
-  width: 100px;
 }
 </style>
