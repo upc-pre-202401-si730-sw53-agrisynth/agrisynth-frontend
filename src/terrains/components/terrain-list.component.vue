@@ -18,7 +18,14 @@ export default defineComponent({
       dialogVisible: false,
       dialogVisible2: false,
       dialogVisible3: false,
-      value : ref(null)
+
+      username : ref(null),
+      location : ref(null),
+      reason : ref(null),
+      cardnum : ref(null),
+      cardname : ref(null),
+      expiration : ref(null),
+      sCode : ref(null),
     };
   },
   async mounted() {
@@ -87,17 +94,17 @@ export default defineComponent({
     <pv-dialog class="pv-dialog" v-model:visible="dialogVisible2" modal @md-closed="closeDialog"   :draggable="false" header="Payment form" >
       <div class="flex flex-column gap-2">
         <label for="username">Full name</label>
-        <pv-input-text id="username" v-model="value" aria-describedby="username-help" />
+        <pv-input-text id="username" v-model="username" aria-describedby="username-help" />
         <small id="username-help">Type your full name</small>
       </div>
       <div class="flex flex-column gap-2">
         <label for="location">Address</label>
-        <pv-input-text id="location" v-model="value" aria-describedby="location-help" />
+        <pv-input-text id="location" v-model="location" aria-describedby="location-help" />
         <small id="location-help">Enter the address where you live</small>
       </div>
       <div class="flex flex-column gap-2">
         <label for="reason">Reason for purchase or rental</label>
-        <pv-input-text id="reason" v-model="value" aria-describedby="reason-help" />
+        <pv-input-text id="reason" v-model="reason" aria-describedby="reason-help" />
         <small id="reason-help">Enter the reason why you buy or rent.</small>
       </div>
       <div class="flex justify-content-end gap-2">
@@ -107,22 +114,22 @@ export default defineComponent({
   </div>
 
   <div>
-    <pv-dialog class="pv-dialog" v-model:visible="dialogVisible3" modal @md-closed="closeDialog"   :draggable="false" header="Más detalles" >
+    <pv-dialog class="pv-dialog" v-model:visible="dialogVisible3" modal @md-closed="closeDialog"   :draggable="false" header="Payment" >
       <div class="flex flex-column gap-2">
         <label for="card-number">Card number</label>
-        <pv-input-text id="cardnumber" v-model="value" aria-describedby="cardnumber-help" />
+        <pv-input-text id="cardnumber" v-model.number="cardnum" aria-describedby="cardnumber-help" />
       </div>
       <div class="flex flex-column gap-2">
         <label for="cardname">Name in card</label>
-        <pv-input-text id="cardname" v-model="value" aria-describedby="cardname-help" />
+        <pv-input-text id="cardname" v-model="cardname" aria-describedby="cardname-help" />
       </div>
       <div class="flex flex-column gap-2">
         <label for="expiration">Expiration date</label>
-        <pv-input-text id="expiration" v-model="value" aria-describedby="expiration-help" />
+        <pv-input-text id="expiration" v-model="expiration" aria-describedby="expiration-help" />
       </div>
       <div class="flex flex-column gap-2">
         <label for="code">Security code</label>
-        <pv-input-text id="code" v-model="value" aria-describedby="code-help" />
+        <pv-input-text id="code" v-model="sCode" aria-describedby="code-help" />
       </div>
       <p>Amount payable S/{{selectedTerrain.sale}}</p>
       <div class="flex justify-content-end gap-2">

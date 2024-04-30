@@ -27,7 +27,8 @@ import 'primevue/resources/themes/bootstrap4-light-blue/theme.css';
 
 const app = createApp(App)
 
-app.use(PrimeVue, router, {ripple: true})
+app.use(PrimeVue, {ripple: true})
+app.use(router)
 app.component('pv-card', Card)
 app.component('pv-button', Button)
 app.component('pv-dialog', Dialog)
