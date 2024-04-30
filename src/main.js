@@ -16,8 +16,7 @@ import Splitter from 'primevue/splitter';
 import SplitterPanel from 'primevue/splitterpanel';
 import Image from 'primevue/image';
 import Fieldset from "primevue/fieldset";
-import Toolbar from "primevue/toolbar";
-import Avatar from "primevue/avatar";
+
 
 import FloatLabel from "primevue/floatlabel";
 

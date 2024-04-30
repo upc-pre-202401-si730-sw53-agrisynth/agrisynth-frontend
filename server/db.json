@@ -66,6 +66,47 @@
       "rent": 10000,
       "image": "https://img10.naventcdn.com/avisos/resize/11/00/66/27/03/74/1200x1200/358239614.jpg?isFirstImage=true"
     }
-  ]
+  ],
+  "machinary": [
+    {
+      "id": "1",
+      "name": "Tractor Massey Ferguson 5455",
+      "price": "$150",
+      "image": "https://www.ipesa.com.pe/blog/wp-content/uploads/2023/09/potencia-tractor-agricola-ipesa-768x554.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Excavadora Caterpillar 320D",
+      "price": "$300",
+      "image": "https://machineryline.pe/img/s/maquinaria-de-construccion-excavadora-de-cadenas-Caterpillar-320D---1639384107989189293_big--16102701220819862400.jpg"
 
+    },
+    {
+      "id": "3",
+      "name": "Segadora John Deere 8700",
+      "price": "$30",
+      "image": "https://www.deere.com/assets/images/region-3/products/hay-and-forage/es_la_aspiracional.jpg"
+
+    },
+    {
+      "id": "4",
+      "name": "Camión Volquete Volvo FMX",
+      "price": "$34",
+      "image": "https://www.penarandadiesel.com.pe/mpw_file/images/w_modulos_img_20210201_161941_e49202.jpg"
+
+    },
+    {
+      "id": "5",
+      "name": "Plataforma Elevadora Genie GS-1930",
+      "price": "$34",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbUPWQDKfB7M7u8OU9lXHtalyRIVuXVsZRGw&s"
+
+    },
+    {
+      "id": "6",
+      "name": "Compactadora Bomag BW211D-5",
+      "price": "$24",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAUUTWTR6jZrrMIMV5ZSMbDmujRqkq0iPQAw&s"
+    }
+  ]
 }
