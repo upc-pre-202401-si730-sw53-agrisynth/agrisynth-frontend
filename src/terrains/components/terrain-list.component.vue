@@ -5,6 +5,7 @@ import TerrainCard from "@/terrains/components/terrain-card.component.vue";
 import {getAllTerrains, getTerrainById} from "@/terrains/services/terrain.api.service.js";
 
 
+
 export default defineComponent({
 
   name: "terrain-list",
@@ -56,6 +57,7 @@ export default defineComponent({
     <h1>Terrain Available</h1>
     <div class="terrain-card-container">
       <terrain-card v-for="terrain in terrains" :key="terrain.id" :terrain="terrain" @terrain-clicked="handleTerrainClick" />
+
     </div>
   </div>
 
@@ -64,28 +66,28 @@ export default defineComponent({
       <pv-image :src="selectedTerrain.image" alt="image" width="100%" preview />
       <h2>{{selectedTerrain.name}}</h2>
       <div >
-        <pv-fieldset legend="Description">
+        <pv-fieldset legend="Description" class="pv-fieldset">
           <p class="m-0">{{selectedTerrain.description}}</p>
         </pv-fieldset>
       </div>
       <div>
-        <pv-fieldset legend="Location">
+        <pv-fieldset legend="Location" class="pv-fieldset">
           <p class="m-0">{{selectedTerrain.location}}</p>
         </pv-fieldset>
       </div>
       <div>
-        <pv-fieldset legend="Clauses of use">
+        <pv-fieldset legend="Clauses of use" class="pv-fieldset">
           <p class="m-0">{{selectedTerrain.usageClauses}}</p>
         </pv-fieldset>
       </div>
       <div>
-        <pv-fieldset legend="Area size">
+        <pv-fieldset legend="Area size" class="pv-fieldset">
           <p class="m-0">{{selectedTerrain.sizeSquareMeters}} square meter</p>
         </pv-fieldset>
       </div>
       <div class="flex justify-content-center gap-2">
-        <pv-button @click="dialogVisible = false, dialogVisible2 = true">Buy S/{{selectedTerrain.sale}}</pv-button>
-        <pv-button @click="dialogVisible = false, dialogVisible2 = true">Rent S/{{selectedTerrain.rent}}</pv-button>
+        <pv-button @click="dialogVisible = false, dialogVisible2 = true" class="pv-button">Buy S/{{selectedTerrain.sale}}</pv-button>
+        <pv-button @click="dialogVisible = false, dialogVisible2 = true" class="pv-button">Rent S/{{selectedTerrain.rent}}</pv-button>
       </div>
     </pv-dialog>
   </div>
@@ -108,7 +110,7 @@ export default defineComponent({
         <small id="reason-help">Enter the reason why you buy or rent.</small>
       </div>
       <div class="flex justify-content-end gap-2">
-        <pv-button @click="dialogVisible2 = false, dialogVisible3 = true">Start pay</pv-button>
+        <pv-button @click="dialogVisible2 = false, dialogVisible3 = true" class="pv-button">Start pay</pv-button>
       </div>
     </pv-dialog>
   </div>
@@ -133,7 +135,7 @@ export default defineComponent({
       </div>
       <p>Amount payable S/{{selectedTerrain.sale}}</p>
       <div class="flex justify-content-end gap-2">
-        <pv-button @click="dialogVisible3 = false">Pay</pv-button>
+        <pv-button @click="dialogVisible3 = false" class="pv-button">Pay</pv-button>
       </div>
     </pv-dialog>
   </div>
@@ -141,20 +143,40 @@ export default defineComponent({
 </template>
 
 <style >
+.pv-dialog {
+  width: 40rem;
+}
+
+.pv-fieldset {
+  margin: 1rem 0; /* Agrega un margen arriba y abajo de cada fieldset para separarlos entre sí */
+}
+.pv-button {
+  padding: 10px 20px;
+  background-color: #3C5A64;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+
+}
+
 .terrain-list {
   padding: 20px;
 }
 .terrain-card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-@media (max-width: 767px) {
-  .terrain-card-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+.terrain-card {
+  flex: 1 0 30%;
+  margin: 1rem;
+}
+@media (max-width: 800px) {
+  .terrain-card {
+    flex: 1 0 100%;
   }
 }
-.pv-dialog {
-  width: 40rem;
-}
+
 </style>
