@@ -146,7 +146,7 @@ export default defineComponent({
 
 </template>
 
-<style>
+<style >
 .pv-dialog {
   width: 40rem;
 }

@@ -22,7 +22,7 @@ export default {
   </pv-card>
 </template>
 
-<style>
+<style >
 .image {
   max-width: 100%;
   height: auto;
