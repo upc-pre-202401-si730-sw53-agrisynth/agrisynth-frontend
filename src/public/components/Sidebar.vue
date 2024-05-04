@@ -20,7 +20,7 @@
         <span class="material-icons">fact_check</span>
         <span class="text">Resource management</span>
       </router-link>
-      <router-link to="/maqui" class="button">
+      <router-link to="/machinarys" class="button">
         <span class="material-icons">engineering</span>
         <span class="text">Machinerys</span>
       </router-link>

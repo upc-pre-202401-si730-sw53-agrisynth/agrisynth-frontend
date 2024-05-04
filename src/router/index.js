@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import TerrainsComponent from "@/views/terrains.component.vue";
 import ResourcesComponent from "@/views/resources.component.vue";
+import MachinerysComponent from "@/views/machinerys.component.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -8,6 +9,8 @@ const router = createRouter({
         {path: "/", component: TerrainsComponent},
         {path: "/terrains", component: TerrainsComponent},
         {path: "/resources", component: ResourcesComponent},
+        {path: '/machinarys', component: MachinerysComponent},
+
     ],
 });
 
