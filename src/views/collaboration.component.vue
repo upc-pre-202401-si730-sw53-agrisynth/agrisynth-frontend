@@ -67,17 +67,70 @@ export default {
 </script>
 
 <style>
-/* Estilos básicos */
+h1 {
+  color: #4CAF50; /* Color del título similar al de la imagen */
+}
+
+/* Estilos para la tabla */
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px; /* Espacio antes de la tabla */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra ligera para la tabla */
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden; /* Esconde el desbordamiento para mantener los bordes redondeados */
 }
+
 th, td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 12px 15px; /* Ajuste de padding para mayor espacio */
   text-align: left;
 }
+
 th {
   background-color: #f4f4f4;
+  color: #333; /* Color oscuro para el texto del encabezado */
+}
+
+/* Botones y acciones */
+button {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  margin-right: 8px; /* Espacio entre botones */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+button:hover {
+  opacity: 0.9; /* Efecto al pasar el ratón por encima */
+}
+
+/* Colores específicos para cada acción */
+.add-btn {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+}
+
+.edit-btn {
+  background-color: #FFC107; /* Amarillo */
+  color: black;
+}
+
+.delete-btn {
+  background-color: #F44336; /* Rojo */
+  color: white;
+}
+
+.view-btn {
+  background-color: #2196F3; /* Azul */
+  color: white;
+}
+
+.no-users {
+  text-align: center;
+  color: #888; /* Color gris para el texto cuando no hay usuarios */
 }
 </style>
+
