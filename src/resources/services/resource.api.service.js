@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // URL base para la API falsa de terrenos
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://cropsphere-fake-api.onrender.com/api";
 
 // Método para obtener todos los terrenos
 export const getAllResources = async () => {
@@ -41,7 +41,7 @@ export const updateResource = async (resourceId, resourceData) => {
   try {
     const response = await axios.put(
       `${BASE_URL}/resources/${resourceId}`,
-      resourceData,
+      resourceData
     );
     return response.data;
   } catch (error) {
