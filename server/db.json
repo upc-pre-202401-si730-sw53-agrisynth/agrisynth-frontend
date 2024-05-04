@@ -79,34 +79,86 @@
       "name": "Excavadora Caterpillar 320D",
       "price": "$300",
       "image": "https://machineryline.pe/img/s/maquinaria-de-construccion-excavadora-de-cadenas-Caterpillar-320D---1639384107989189293_big--16102701220819862400.jpg"
-
     },
     {
       "id": "3",
       "name": "Segadora John Deere 8700",
       "price": "$30",
       "image": "https://www.deere.com/assets/images/region-3/products/hay-and-forage/es_la_aspiracional.jpg"
-
     },
     {
       "id": "4",
       "name": "Camión Volquete Volvo FMX",
       "price": "$34",
       "image": "https://www.penarandadiesel.com.pe/mpw_file/images/w_modulos_img_20210201_161941_e49202.jpg"
-
     },
     {
       "id": "5",
       "name": "Plataforma Elevadora Genie GS-1930",
       "price": "$34",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbUPWQDKfB7M7u8OU9lXHtalyRIVuXVsZRGw&s"
-
     },
     {
       "id": "6",
       "name": "Compactadora Bomag BW211D-5",
       "price": "$24",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAUUTWTR6jZrrMIMV5ZSMbDmujRqkq0iPQAw&s"
+    }
+  ],
+  "resources": [
+    {
+      "id": 1,
+      "name": "Trigo",
+      "quantity": 300,
+      "type": "semilla",
+      "purchase": 1,
+      "sale": 1.5,
+      "image": "https://img10.naventcdn.com/avisos/resize/11/01/42/32/45/72/1200x1200/1351713741.jpg?isFirstImage=true"
+    },
+    {
+      "id": 2,
+      "name": "Maiz",
+      "quantity": 200,
+      "type": "semilla",
+      "purchase": 1.5,
+      "sale": 2,
+      "image": "https://www.campomar.com.ar/wp-content/uploads/2019/06/maiz-amarillo.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Soja",
+      "quantity": 100,
+      "type": "semilla",
+      "purchase": 2,
+      "sale": 2.5,
+      "image": "https://www.infocampo.com.ar/wp-content/uploads/2019/07/soja-1.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Trigo",
+      "quantity": 300,
+      "type": "grano",
+      "purchase": 1,
+      "sale": 1.5,
+      "image": "https://img10.naventcdn.com/avisos/resize/11/01/42/32/45/72/1200x1200/1351713741.jpg?isFirstImage=true"
+    },
+    {
+      "id": 5,
+      "name": "Maiz",
+      "quantity": 200,
+      "type": "grano",
+      "purchase": 1.5,
+      "sale": 2,
+      "image": "https://www.campomar.com.ar/wp-content/uploads/2019/06/maiz-amarillo.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Soja",
+      "quantity": 100,
+      "type": "grano",
+      "purchase": 2,
+      "sale": 2.5,
+      "image": "https://www.infocampo.com.ar/wp-content/uploads/2019/07/soja-1.jpg"
     }
   ]
 }

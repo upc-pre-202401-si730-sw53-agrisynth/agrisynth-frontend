@@ -12,15 +12,15 @@
 
     <h3>Menu</h3>
     <div class="menu">
-      <router-link to="/terrains" class="button">
+      <router-link to="/" class="button">
         <span class="material-icons">terrain</span>
         <span class="text">Terrains</span>
       </router-link>
-      <router-link to="/" class="button">
+      <router-link to="/resources" class="button">
         <span class="material-icons">fact_check</span>
         <span class="text">Resource management</span>
       </router-link>
-      <router-link to="/maquinaria" class="button">
+      <router-link to="/maqui" class="button">
         <span class="material-icons">engineering</span>
         <span class="text">Machinerys</span>
       </router-link>
@@ -103,6 +103,7 @@ aside {
 
     .menu-toggle {
       transition: 0.2s ease-in-out;
+
       .material-icons {
         font-size: 2rem;
         color: var(--light);
@@ -118,11 +119,14 @@ aside {
     }
   }
 
-  h3, .button .text {
+  h3,
+  .button .text {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    min-height: 2rem; /* Establecer un alto mínimo */
-    display: flex; /* Alinear verticalmente el texto */
+    min-height: 2rem;
+    /* Establecer un alto mínimo */
+    display: flex;
+    /* Alinear verticalmente el texto */
     align-items: center;
   }
 
@@ -149,18 +153,22 @@ aside {
         color: var(--light);
         transition: 0.2s ease-in-out;
       }
+
       .text {
         color: var(--light);
         transition: 0.2s ease-in-out;
-        min-height: 2rem; /* Establecer un alto mínimo */
-        display: flex; /* Alinear verticalmente el texto */
+        min-height: 2rem;
+        /* Establecer un alto mínimo */
+        display: flex;
+        /* Alinear verticalmente el texto */
 
       }
 
       &:hover {
         background-color: var(--dark-alt);
 
-        .material-icons, .text {
+        .material-icons,
+        .text {
           color: var(--primary);
         }
       }
@@ -169,7 +177,8 @@ aside {
         background-color: var(--dark-alt);
         border-right: 5px solid var(--primary);
 
-        .material-icons, .text {
+        .material-icons,
+        .text {
           color: var(--primary);
         }
       }
@@ -197,7 +206,8 @@ aside {
       }
     }
 
-    h3, .button .text {
+    h3,
+    .button .text {
       opacity: 1;
     }
 
