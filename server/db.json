@@ -1,0 +1,112 @@
+{
+  "terrains": [
+    {
+      "id": 1,
+      "name": "Sunshine Farm",
+      "description": "Fertile land with good drainage and water access.",
+      "location": "Main Street, City X",
+      "usageClauses": "Only for organic vegetable cultivation. No use of chemical pesticides.",
+      "sizeSquareMeters": 20234,
+      "sale": 300000,
+      "rent": 10000,
+      "image": "https://img10.naventcdn.com/avisos/resize/11/01/42/32/45/72/1200x1200/1351713741.jpg?isFirstImage=true"
+    },
+    {
+      "id": 2,
+      "name": "Hope Estate",
+      "description": "Large land with well-fertilized soil and irrigation system.",
+      "location": "Main Road, City Y",
+      "usageClauses": "Allowed for cultivation of all types of crops. Must respect crop rotation.",
+      "sizeSquareMeters": 40468,
+      "sale": 300000,
+      "rent": 10000,
+      "image": "https://img10.naventcdn.com/avisos/resize/11/00/66/14/80/55/1200x1200/355757231.jpg?isFirstImage=true"
+    },
+    {
+      "id": 3,
+      "name": "Flower Ranch",
+      "description": "Land with warm climate ideal for tropical fruit cultivation.",
+      "location": "Central Avenue, City Z",
+      "usageClauses": "Exclusive use for tropical fruit cultivation. No heavy machinery allowed.",
+      "sizeSquareMeters": 32374,
+      "sale": 300000,
+      "rent": 10000,
+      "image": "https://img10.naventcdn.com/avisos/resize/11/00/66/31/99/90/1200x1200/359139793.jpg?isFirstImage=true"
+    },
+    {
+      "id": 4,
+      "name": "Green Fields",
+      "description": "Flat land with excellent soil composition and nearby water source.",
+      "location": "Rural Route 1, City A",
+      "usageClauses": "Suitable for a variety of crops. No restrictions on pesticide use.",
+      "sizeSquareMeters": 25000,
+      "sale": 300000,
+      "rent": 10000,
+      "image": "https://img10.naventcdn.com/avisos/resize/11/01/42/01/86/49/1200x1200/1154108463.jpg?isFirstImage=true"
+    },
+    {
+      "id": 5,
+      "name": "Mountain View Farm",
+      "description": "Sloped terrain with rich soil and natural irrigation.",
+      "location": "Mountain Road, City B",
+      "usageClauses": "Recommended for vineyards and orchards. No chemical fertilizers allowed.",
+      "sizeSquareMeters": 30000,
+      "sale": 300000,
+      "rent": 10000,
+      "image": "https://img10.naventcdn.com/avisos/resize/111/01/42/83/12/58/1200x1200/1442294370.jpg?rapc=bXZhX2ltYWdl?isFirstImage=true"
+    },
+    {
+      "id": 6,
+      "name": "Riverfront Estate",
+      "description": "Land bordering a river, perfect for rice paddies and aquaculture.",
+      "location": "Riverfront Drive, City C",
+      "usageClauses": "Reserved for rice cultivation and fish farming. No hunting or fishing allowed.",
+      "sizeSquareMeters": 15000,
+      "sale": 300000,
+      "rent": 10000,
+      "image": "https://img10.naventcdn.com/avisos/resize/11/00/66/27/03/74/1200x1200/358239614.jpg?isFirstImage=true"
+    }
+  ],
+  "machinary": [
+    {
+      "id": "1",
+      "name": "Tractor Massey Ferguson 5455",
+      "price": "$150",
+      "image": "https://www.ipesa.com.pe/blog/wp-content/uploads/2023/09/potencia-tractor-agricola-ipesa-768x554.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Excavadora Caterpillar 320D",
+      "price": "$300",
+      "image": "https://machineryline.pe/img/s/maquinaria-de-construccion-excavadora-de-cadenas-Caterpillar-320D---1639384107989189293_big--16102701220819862400.jpg"
+
+    },
+    {
+      "id": "3",
+      "name": "Segadora John Deere 8700",
+      "price": "$30",
+      "image": "https://www.deere.com/assets/images/region-3/products/hay-and-forage/es_la_aspiracional.jpg"
+
+    },
+    {
+      "id": "4",
+      "name": "Camión Volquete Volvo FMX",
+      "price": "$34",
+      "image": "https://www.penarandadiesel.com.pe/mpw_file/images/w_modulos_img_20210201_161941_e49202.jpg"
+
+    },
+    {
+      "id": "5",
+      "name": "Plataforma Elevadora Genie GS-1930",
+      "price": "$34",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbUPWQDKfB7M7u8OU9lXHtalyRIVuXVsZRGw&s"
+
+    },
+    {
+      "id": "6",
+      "name": "Compactadora Bomag BW211D-5",
+      "price": "$24",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAUUTWTR6jZrrMIMV5ZSMbDmujRqkq0iPQAw&s"
+    }
+  ]
+}
