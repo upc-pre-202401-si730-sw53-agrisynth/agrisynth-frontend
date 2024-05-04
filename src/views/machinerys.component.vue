@@ -1,0 +1,19 @@
+
+<script>
+
+import {defineComponent} from "vue";
+import MachinaryListComponent from "@/machinerys/components/machinary-list.component.vue";
+export default defineComponent({
+  components: {MachinaryListComponent},
+})
+</script>
+
+<template>
+  <machinary-list-component></machinary-list-component>
+</template>
+
+
+
+<style >
+
+</style>
