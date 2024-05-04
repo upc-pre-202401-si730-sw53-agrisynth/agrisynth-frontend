@@ -43,7 +43,7 @@ export default defineComponent({
 
 </template>
 
-<style>
+<style scoped>
 .machinery-list {
   padding: 20px;
 }

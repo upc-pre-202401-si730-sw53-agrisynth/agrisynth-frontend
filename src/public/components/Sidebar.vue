@@ -32,11 +32,11 @@
         <span class="material-icons">email</span>
         <span class="text">Documents</span>
       </router-link>
-      <router-link to="/contact" class="button">
+      <router-link to="/support" class="button">
         <span class="material-icons">help</span>
         <span class="text">Suport and help</span>
       </router-link>
-      <router-link to="/contact" class="button">
+      <router-link to="/settings" class="button">
         <span class="material-icons">settings</span>
         <span class="text">Settings</span>
       </router-link>
@@ -45,7 +45,7 @@
     <div class="flex"></div>
 
     <div class="menu">
-      <router-link to="/settings" class="button">
+      <router-link to="/account" class="button">
         <span class="material-icons">account_circle</span>
         <span class="text">Account</span>
       </router-link>

@@ -66,7 +66,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 h1 {
   color: #4CAF50; /* Color del título similar al de la imagen */
 }
