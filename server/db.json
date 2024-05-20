@@ -161,11 +161,35 @@
       "image": "https://www.infocampo.com.ar/wp-content/uploads/2019/07/soja-1.jpg"
     }
   ],
-  "members": [
+  "teams": [
     {
-      "id": "5e32",
-      "name": "Eduardo Renatsdfsdfsfdsfo Ventura Chancafe",
-      "username": "eduventura7777@gmail.com"
+      "id": 4,
+      "name": "Development"
+    },
+    {
+      "id": 5,
+      "name": "Hola"
+    }
+  ],
+  "workers": [
+    {
+      "id": 1,
+      "name": "Alice"
+    },
+    {
+      "id": 4,
+      "name": "Edu"
+    },
+    {
+      "id": 5,
+      "name": "Luis"
+    }
+  ],
+  "teamWorkers": [
+    {
+      "teamId": 5,
+      "workerId": 1,
+      "id": 6
     }
   ]
 }

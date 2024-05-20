@@ -17,6 +17,9 @@ import SplitterPanel from "primevue/splitterpanel";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import FloatLabel from "primevue/floatlabel";
+import TreeTable from "primevue/treetable";
+import Dropdown from "primevue/dropdown";
+import Panel from "primevue/panel";
 
 import "primevue/resources/themes/aura-light-green/theme.css";
 import "primeflex/primeflex.css";
@@ -27,9 +30,12 @@ createApp(App)
     .use(router)
     .use(PrimeVue, {ripple: true})
     .component("pv-input-text", InputText)
+    .component("pv-dropdown", Dropdown)
+    .component("pv-tree-table", TreeTable)
     .component("pv-dialog", Dialog)
     .component("pv-button", Button)
     .component("pv-card", Card)
+    .component("pv-panel", Panel)
     .component("pv-icon-field", IconField)
     .component("pv-icon", InputIcon)
     .component("pv-fieldset", Fieldset)
