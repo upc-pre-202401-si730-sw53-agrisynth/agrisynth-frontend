@@ -7,7 +7,7 @@ import Recover_password from "@/account/pages/recover_password.component.vue";
 
 
 export default{
-  name: "account",
+  name: "start_screen",
   components: {Recover_password, Subscription, Sign_in, Register, Home},
 }
 </script>
@@ -18,3 +18,17 @@ export default{
   </div>
 
 </template>
+
+<style>
+@media (max-width: 768px) {
+
+  .image{
+    display: none;
+  }
+
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+}
+</style>

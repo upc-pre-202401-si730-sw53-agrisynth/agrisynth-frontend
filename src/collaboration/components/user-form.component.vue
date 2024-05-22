@@ -1,4 +1,4 @@
-<!-- components/UserForm.vue -->
+<!-- pages/UserForm.vue -->
 <template>
   <Dialog :visible="visible" @hide="close" :modal="true" :closable="true">
     <form @submit.prevent="handleSubmit">

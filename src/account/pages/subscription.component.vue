@@ -1,6 +1,6 @@
 <script>
-import CorporatePlanDialog from './dialogs/corporate_plan.dialog.vue'
-import AdvisoryPlanDialog from './dialogs/advisory_plan.dialog.vue'
+import CorporatePlanDialog from '../components/corporate_plan.dialog.vue'
+import AdvisoryPlanDialog from '../components/advisory_plan.dialog.vue'
 export default{
   name: 'subscription',
 
@@ -55,15 +55,14 @@ export default{
 .card{
   width: 30rem;
   text-align: center;
-  margin-top: 150px;
-  margin-left: 50px;
+  margin-top: 30vh;
+  margin-left: 25vw;
   overflow: hidden;
   background-color: #95C8BC;
 }
 
 /*BUTTONS*/
 .mini_button{
-  width: 80%;
   height: 10%;
   font-size: 10px;
   transition-duration: 0.2s;

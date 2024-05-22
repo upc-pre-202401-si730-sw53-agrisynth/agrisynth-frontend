@@ -11,7 +11,3 @@ export default defineComponent({
 <template>
   <terrain-list-component></terrain-list-component>
 </template>
-
-
-
-<style></style>

@@ -1,7 +1,7 @@
 <script>
-import ApiUsers from '@/collaboration/services/api_users.js'
-import EmailSentDialog from './dialogs/email_sent.dialog.vue'
-import EmailSentFailureDialog from './dialogs/email_sent_failure.dialog.vue'
+import ApiUsers from '@/account/services/api_users.js'
+import EmailSentDialog from '../components/email_sent.dialog.vue'
+import EmailSentFailureDialog from '../components/email_sent_failure.dialog.vue'
 export default{
   name: 'recover_password',
   data(){

@@ -17,6 +17,7 @@ import SplitterPanel from "primevue/splitterpanel";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import FloatLabel from "primevue/floatlabel";
+import InputMask from "primevue/inputmask";
 
 import "primevue/resources/themes/aura-light-green/theme.css";
 import "primeflex/primeflex.css";
@@ -34,6 +35,7 @@ createApp(App)
     .component("pv-icon", InputIcon)
     .component("pv-fieldset", Fieldset)
     .component("pv-image", Image)
+    .component("pv-input-mask", InputMask)
     .component("pv-divider", Divider)
     .component("pv-splitter", Splitter)
     .component("pv-splitter-panel", SplitterPanel)

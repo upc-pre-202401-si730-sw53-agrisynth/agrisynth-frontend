@@ -1,7 +1,7 @@
 <script>
-import RegisterSuccess from './dialogs/register_success.dialog.vue'
-export default {
-  name: 'register',
+import ConfigurationSuccess from '@/configuration/components/configuration_success.dialog.vue'
+export default{
+  name: 'configuration',
   data(){
     return{
       first_name: '',
@@ -10,12 +10,16 @@ export default {
       phone_number: '',
       identification_document: '',
       user_name: '',
+      password: '',
+      confirm_password: '',
+      isPasswordValid: true,
+      arePasswordsEqual: false,
       visibleRegisterSuccessDialog: false,
     }
   },
 
-  components: {
-    RegisterSuccess
+  components:{
+    ConfigurationSuccess,
   },
 
   methods:{
@@ -44,11 +48,26 @@ export default {
       return /^\d{3}-\d{3}-\d{2}$/.test(this.identification_document) || this.identification_document === "";
     },
 
+    validatePassword() {
+      const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%&])[A-Za-z\d@#$%&]{8,}$/;
+      if(this.password !== '') this.isPasswordValid = regex.test(this.password);
+    },
+
+    confirmPassword() {
+      if(this.confirm_password !== '') this.arePasswordsEqual = this.confirm_password === this.password;
+    },
+
+    correctPasswords(){
+      return (this.isPasswordValid && this.arePasswordsEqual);
+    },
+
     enableContinueButton(){
       if(this.first_name === '' || this.last_name === '' || this.email === ''
-          || this.phone_number === '' || this.identification_document === '' || this.user_name === '') return false;
+          || this.phone_number === '' || this.identification_document === '' || this.user_name === '' ||
+          this.password === '' || this.confirm_password === '') return false;
       return !(this.validateFirstName() && this.validateLastName() && this.validateEmail()
-          && this.validateUsername() && this.validatePhoneNumber() && this.validateIDNumber());
+          && this.validateUsername() && this.validatePhoneNumber() && this.validateIDNumber()
+          && this.correctPasswords());
 
     }
   }
@@ -60,7 +79,7 @@ export default {
   <pv-card class="card">
 
     <template #title>
-      <h1 style="text-align: center">Register</h1>
+      <h1 style="text-align: center">Configuration</h1>
     </template>
 
     <template #content >
@@ -119,14 +138,35 @@ export default {
 
       </div>
 
-      <br>
+      <br><br>
+
       <div style="margin-left: 20px">
         <label for="user_name">User Name</label>
-        <pv-input-text aria-label="username_input" class="text1" id="user_name" v-model="user_name"/>
         <br>
+        <pv-input-text aria-label="username_input" class="text1" id="user_name" v-model="user_name"/>
         <small id="valid_last_name" style="font-size: 10px" v-if="validateUsername()">
           Invalid Name
         </small>
+      </div>
+
+      <div style="margin-left: 20px">
+        <label for="password">Password</label>
+        <br>
+        <pv-input-text aria-label="password_input" class="text1" id="password" v-model="password" @blur="validatePassword()" :class="{ 'is-invalid': !isPasswordValid }"/>
+        <small id="valid_password" style="font-size: 10px" v-if="!isPasswordValid">
+          Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character and
+          be at least 8 characters long
+        </small>
+      </div>
+
+
+      <div style="margin-left: 20px">
+        <label for="confirm_password">Confirm Password</label>
+        <pv-input-text aria-label="confirm_password_input" class="text1" id="email" v-model="confirm_password"
+                       @blur="confirmPassword()" :class="{ 'is-invalid': !arePasswordsEqual  && confirm_password !== '' }" />
+        <br>
+        <small id="confirm_Password" style="font-size: 10px"
+               v-if="!arePasswordsEqual && confirm_password !== ''">The passwords do not match</small>
       </div>
 
       <br><br>
@@ -134,9 +174,9 @@ export default {
       <div style="text-align: center">
         <pv-button class="mini_button" icon="pi pi-angle-left" style="margin-right: 40px" aria-label="Return"
                    @click="$router.go(-1)"></pv-button>
-        <pv-button class="large_button" icon="pi pi-user-plus" label="Register" severity="primary"
+        <pv-button class="large_button" icon="pi pi-user-plus" label="Save" severity="primary"
                    @click="visibleRegisterSuccessDialog = true" :disabled="!enableContinueButton()"></pv-button>
-        <register-success v-model:visible="visibleRegisterSuccessDialog"></register-success>
+        <configuration-success v-model:visible="visibleRegisterSuccessDialog"></configuration-success>
       </div>
     </template>
 
@@ -144,11 +184,12 @@ export default {
 </template>
 
 <style scoped>
-
 /*CARD*/
 .card{
   width: 30rem;
-  margin-left: 50px;
+  margin-top: 10vh;
+  margin-left: 25vw;
+  height: 540px;
   overflow: hidden;
   background-color: #95C8BC;
 }
@@ -204,7 +245,7 @@ label {
   .card {
     margin-top: 50px;
     width: 20rem;
-    margin-left: 0;
+    margin-left: 67px;
   }
 
   .text2{

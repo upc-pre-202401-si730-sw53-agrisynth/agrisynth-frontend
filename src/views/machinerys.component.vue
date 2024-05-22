@@ -11,9 +11,3 @@ export default defineComponent({
 <template>
   <machinary-list-component></machinary-list-component>
 </template>
-
-
-
-<style >
-
-</style>

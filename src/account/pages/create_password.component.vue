@@ -1,5 +1,5 @@
 <script>
-import CreatePasswordSuccessDialog from './dialogs/create_password_success.dialog.vue'
+import CreatePasswordSuccessDialog from '../components/create_password_success.dialog.vue'
 export default {
   name: 'create_password',
   data(){
@@ -78,7 +78,8 @@ export default {
 .card{
   background-color: #95C8BC;
   width: 30rem;
-  margin-left: 50px;
+  margin-top: 30vh;
+  margin-left: 25vw;
   overflow: hidden;
 }
 
@@ -136,7 +137,7 @@ h5:hover{
   .card {
     margin-top: 50px;
     width: 20rem;
-    margin-left: 0;
+    margin-left: 67px;
   }
 
   .input_text{

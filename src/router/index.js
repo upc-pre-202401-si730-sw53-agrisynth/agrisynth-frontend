@@ -8,15 +8,15 @@ import AddUserPage from "@/collaboration/pages/add-user.component.vue";
 import UserDetailsPage from "@/collaboration/pages/user-detail.component.vue";
 
 import account from "../views/account.component.vue";
-import Register from '@/components/start_screen/autentication/register/register.component.vue';
-import SignIn from '@/components/start_screen/autentication/sign_in/sign_in.component.vue';
-import Recover from '@/components/start_screen/password/recover_password.component.vue';
-import Subscription from '@/components/start_screen/subscription/subscription.component.vue';
-import CreatePassword from '@/components/start_screen/autentication/register/create_password.component.vue';
-import AuthenticationView from '@/components/start_screen/autentication/autentication_view.component.vue';
+import Register from '@/account/pages/register.component.vue';
+import SignIn from '@/account/pages/sign_in.component.vue';
+import Recover from '@/account/pages/recover_password.component.vue';
+import Subscription from '@/account/pages/subscription.component.vue';
+import CreatePassword from '@/account/pages/create_password.component.vue';
+import AuthenticationView from '@/account/pages/autentication_view.component.vue';
 
-import Support from '@/components/support/support.component.vue';
-import Settings from '@/components/configuration/configuration.component.vue'
+import Support from '@/support/pages/support.component.vue';
+import Settings from '@/configuration/pages/configuration.component.vue'
 
 
 const router = createRouter({

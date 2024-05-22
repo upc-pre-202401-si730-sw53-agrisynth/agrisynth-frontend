@@ -1,6 +1,10 @@
 import axios from 'axios';
 
+<<<<<<< Updated upstream:src/collaboration/services/api_users.js
 const BASE_URL = 'https://cropsphere-fake-api.onrender.com/api/';
+=======
+const BASE_URL = "https://cropsphere-fake-api.onrender.com/api/";
+>>>>>>> Stashed changes:src/account/services/api_users.js
 
 const getUsers = async () => {
     try {

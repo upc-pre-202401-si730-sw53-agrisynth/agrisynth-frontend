@@ -12,7 +12,7 @@ export default{
       </span>
       <br>
       <pv-button label="Ok" severity="warning" style="margin-top: 20px;"
-                 @click="$router.push('sign-in')"></pv-button>
+                 @click="$router.push('terrains')"></pv-button>
     </div>
   </pv-dialog>
 </template>

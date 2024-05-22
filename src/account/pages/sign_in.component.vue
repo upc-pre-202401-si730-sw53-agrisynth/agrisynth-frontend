@@ -1,7 +1,7 @@
 <script>
-import SignInSuccessDialog from './dialogs/sign_in_success.dialog.vue'
-import SignInFailureDialog from './dialogs/sign_in_failure.dialog.vue'
-import ApiUsers from '@/collaboration/services/api_users.js'
+import SignInSuccessDialog from '../components/sign_in_success.dialog.vue'
+import SignInFailureDialog from '../components/sign_in_failure.dialog.vue'
+import ApiUsers from '@/account/services/api_users.js'
 export default{
   name: 'sign_in',
   data() {
@@ -87,8 +87,7 @@ export default{
 /*CARD*/
 .card{
   width: 30rem;
-  height: 300px;
-  margin-top: 30vh;
+  margin-top: 15vh;
   margin-left: 25vw;
   overflow: hidden;
   background-color: #95C8BC;
@@ -147,7 +146,6 @@ h5:hover{
 @media (max-width: 768px){
   .card {
     width: 20rem;
-    height: 22rem;
     margin-left: 66px;
     margin-top: 170px;
   }

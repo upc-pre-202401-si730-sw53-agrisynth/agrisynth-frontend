@@ -128,7 +128,7 @@ export default {
 </script>
 
 
-<style >
+<style scoped>
 .md-card {
   border-radius: 5px;
   padding: 16px;
