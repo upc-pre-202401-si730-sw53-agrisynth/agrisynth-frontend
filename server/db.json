@@ -177,5 +177,19 @@
       "name": "Eduardo Renatsdfsdfsfdsfo Ventura Chancafe",
       "username": "eduventura7777@gmail.com"
     }
+  ],
+  "documents": [
+    {
+      "id": 1,
+      "name": "informeambiental.docx"
+    },
+    {
+      "id": 2,
+      "name": "informederiesgo.docx"
+    },
+    {
+      "id": 3,
+      "name": "listademaquinarias.pdf"
+    }
   ]
 }
