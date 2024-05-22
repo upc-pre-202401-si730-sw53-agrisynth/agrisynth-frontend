@@ -1,7 +1,11 @@
 <template>
+  <div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem">
+    <h1 style="margin: 0 ">Document Management</h1>
+    </div>
     <pv-data-table :value="documents" showGridlines tableStyle="width:100%">
       <pv-column field="name" header="Document Name"></pv-column>
-      <pv-column header="Options">
+      <pv-column header="Options" >
         <template #body="slotProps">
           <div class="flex justify-content-center gap-2">
             <pv-button icon="pi pi-pencil" style="background-color: lightgreen; color: white; padding: 0.5rem"
@@ -181,5 +185,7 @@ export default defineComponent({
 .spacer {
   height: 40px;
 }
-
+h1 {
+  color: #4caf50;
+}
 </style>
