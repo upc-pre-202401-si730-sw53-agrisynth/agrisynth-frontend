@@ -18,17 +18,3 @@ export default{
   </div>
 
 </template>
-
-<style>
-@media (max-width: 768px) {
-
-  .image{
-    display: none;
-  }
-
-  .container {
-    flex-direction: column;
-    height: auto;
-  }
-}
-</style>
