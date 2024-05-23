@@ -20,6 +20,7 @@ import FloatLabel from "primevue/floatlabel";
 import TreeTable from "primevue/treetable";
 import Dropdown from "primevue/dropdown";
 import Panel from "primevue/panel";
+import InputMask from "primevue/inputmask";
 
 import "primevue/resources/themes/aura-light-green/theme.css";
 import "primeflex/primeflex.css";
@@ -46,4 +47,5 @@ createApp(App)
     .component("pv-data-table", DataTable)
     .component("pv-column", Column)
     .component("pv-float-label", FloatLabel)
+    .component("pv-input-mask", InputMask)
     .mount("#app");
