@@ -28,7 +28,7 @@
         <span class="material-icons">group</span>
         <span class="text">Groups</span>
       </router-link>
-      <router-link to="/contact" class="button">
+      <router-link to="/documents" class="button">
         <span class="material-icons">email</span>
         <span class="text">Documents</span>
       </router-link>

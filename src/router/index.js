@@ -17,6 +17,7 @@ import AuthenticationView from '@/components/start_screen/autentication/autentic
 
 import Support from '@/components/support/support.component.vue';
 import Settings from '@/components/configuration/configuration.component.vue'
+import DocumentsComponent from "@/views/documents.component.vue";
 
 
 const router = createRouter({
@@ -26,6 +27,7 @@ const router = createRouter({
         {path: "/terrains", component: TerrainsComponent},
         {path: "/resources", component: ResourcesComponent},
         {path: '/machinarys', component: MachinerysComponent},
+        {path: '/documents', component: DocumentsComponent},
         { path: '/members', component: HomePage },
         { path: '/member/add', component: AddUserPage },
         { path: '/member/edit/:id', component: EditUserPage, props: true },
