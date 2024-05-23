@@ -1,18 +1,17 @@
-<script >
+<script>
 
-import TerrainList from "@/terrains/components/terrain-list.component.vue";
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
+import TerrainListComponent from "@/terrains/components/terrain-list.component.vue";
 
 export default defineComponent({
-  components: {TerrainList}
+  components: { TerrainListComponent },
 })
-
 </script>
 
 <template>
-<terrain-list></terrain-list>
+  <terrain-list-component></terrain-list-component>
 </template>
 
-<style scoped>
 
-</style>
+
+<style></style>
