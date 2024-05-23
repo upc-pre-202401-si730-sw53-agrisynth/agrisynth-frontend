@@ -1,3 +1,4 @@
+
 import axios from "axios";
 
 // URL base para la API falsa de terrenos
@@ -17,8 +18,13 @@ export const getAllTerrains = async () => {
 // Método para obtener un terreno por su ID
 export const getTerrainById = async (terrainId) => {
   try {
-    const response = await axios.get(`${BASE_URL}/terrains/${terrainId}`);
-    return response.data;
+    const response = await axios.get(`${BASE_URL}/terrains`);
+    const terrains = response.data;
+    const terrain = terrains.find((terrain) => terrain.id === terrainId);
+    if (!terrain) {
+      return false;
+    }
+    return terrain;
   } catch (error) {
     console.error(`Error fetching terrain with ID ${terrainId}:`, error);
     throw error;
@@ -40,8 +46,8 @@ export const createTerrain = async (terrainData) => {
 export const updateTerrain = async (terrainId, terrainData) => {
   try {
     const response = await axios.put(
-      `${BASE_URL}/terrains/${terrainId}`,
-      terrainData
+        `${BASE_URL}/terrains/${terrainId}`,
+        terrainData
     );
     return response.data;
   } catch (error) {
@@ -60,3 +66,13 @@ export const deleteTerrain = async (terrainId) => {
     throw error;
   }
 };
+
+/*export const getTerrainById = async (terrainId) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/terrains/${terrainId}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching terrain with ID ${terrainId}:`, error);
+    throw error;
+  }
+};*/

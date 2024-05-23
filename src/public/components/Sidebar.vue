@@ -24,11 +24,11 @@
         <span class="material-icons">engineering</span>
         <span class="text">Machinerys</span>
       </router-link>
-      <router-link to="/members" class="button">
+      <router-link to="/collaboration" class="button">
         <span class="material-icons">group</span>
         <span class="text">Groups</span>
       </router-link>
-      <router-link to="/contact" class="button">
+      <router-link to="/documents" class="button">
         <span class="material-icons">email</span>
         <span class="text">Documents</span>
       </router-link>
