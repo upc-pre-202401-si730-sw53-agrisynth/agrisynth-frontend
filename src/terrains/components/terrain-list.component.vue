@@ -55,14 +55,14 @@ export default defineComponent({
     <h1>Terrain Available</h1>
     <div class="terrain-card-container">
       <terrain-card v-for="terrain in terrains" :key="terrain.id" :terrain="terrain"
-        @terrain-clicked="handleTerrainClick" />
+                    @terrain-clicked="handleTerrainClick" />
 
     </div>
   </div>
 
   <div>
     <pv-dialog class="pv-dialog" v-model:visible="dialogVisible" modal @md-closed="closeDialog" :draggable="false"
-      header="More details">
+               header="More details">
       <pv-image :src="selectedTerrain.image" alt="image" width="100%" preview />
       <h2>{{ selectedTerrain.name }}</h2>
       <div>
@@ -86,8 +86,6 @@ export default defineComponent({
         </pv-fieldset>
       </div>
       <div class="flex justify-content-center gap-2">
-        <pv-button @click="dialogVisible = false, dialogVisible2 = true" class="pv-button">Buy
-          S/{{ selectedTerrain.sale }}</pv-button>
         <pv-button @click="dialogVisible = false, dialogVisible2 = true" class="pv-button">Rent
           S/{{ selectedTerrain.rent }}</pv-button>
       </div>
@@ -96,7 +94,7 @@ export default defineComponent({
 
   <div>
     <pv-dialog class="pv-dialog" v-model:visible="dialogVisible2" modal @md-closed="closeDialog" :draggable="false"
-      header="Payment form">
+               header="Payment form">
       <div class="flex flex-column gap-2">
         <label for="username">Full name</label>
         <pv-input-text id="username" v-model="username" aria-describedby="username-help" />
@@ -120,7 +118,7 @@ export default defineComponent({
 
   <div>
     <pv-dialog class="pv-dialog" v-model:visible="dialogVisible3" modal @md-closed="closeDialog" :draggable="false"
-      header="Payment">
+               header="Payment">
       <div class="flex flex-column gap-2">
         <label for="card-number">Card number</label>
         <pv-input-text id="cardnumber" v-model.number="cardnum" aria-describedby="cardnumber-help" />
