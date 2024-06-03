@@ -24,8 +24,9 @@ export default {
 
 <style scoped>
 .image {
-  max-width: 100%;
-  height: auto;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .pv-card-container {
