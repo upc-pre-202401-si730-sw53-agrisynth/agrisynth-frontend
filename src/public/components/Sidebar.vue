@@ -5,9 +5,9 @@
     </div>
 
     <div class="menu-toggle-wrap">
-      <button class="menu-toggle" @click="ToggleMenu">
-        <span class="material-icons">keyboard_double_arrow_right</span>
-      </button>
+      <pv-button class="menu-toggle" @click="ToggleMenu">
+        <span class="material-icons">keyboard_arrow_right</span>
+      </pv-button>
     </div>
 
     <h3>Menu</h3>
@@ -65,19 +65,15 @@ const ToggleMenu = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 aside {
   display: flex;
   flex-direction: column;
-
-  background-color: #73BF6C;
-  color: var(--light);
-
+  background-color: var(--primary-color);
+  color: var(--primary-color-text);
   width: calc(2rem + 32px);
-  overflow: hidden;
   min-height: 100vh;
   padding: 1rem;
-
   transition: 0.2s ease-in-out;
 
   .flex {
@@ -85,36 +81,23 @@ aside {
   }
 
   .logo {
-    margin-bottom: 1rem;
-
     img {
-      width: 8rem;
+      width: 100%;
+      max-width: 15rem;
     }
   }
 
   .menu-toggle-wrap {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-
     position: relative;
-    top: 0;
-    transition: 0.2s ease-in-out;
 
     .menu-toggle {
-      transition: 0.2s ease-in-out;
+      position: absolute;
+      z-index: 10;
+      right: -20%;
+      background-color: var(--primary-700);
 
       .material-icons {
-        font-size: 2rem;
-        color: var(--light);
-        transition: 0.2s ease-out;
-      }
-
-      &:hover {
-        .material-icons {
-          color: var(--primary);
-          transform: translateX(0.5rem);
-        }
+        color: var(--primary-color-text);
       }
     }
   }
@@ -124,16 +107,11 @@ aside {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     min-height: 2rem;
-    /* Establecer un alto mínimo */
     display: flex;
-    /* Alinear verticalmente el texto */
     align-items: center;
   }
 
   h3 {
-    color: var(--grey);
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
     text-transform: uppercase;
   }
 
@@ -144,43 +122,29 @@ aside {
       display: flex;
       align-items: center;
       text-decoration: none;
-
       transition: 0.2s ease-in-out;
       padding: 0.5rem 1rem;
 
       .material-icons {
         font-size: 2rem;
-        color: var(--light);
+        color: var(--primary-color-text);
         transition: 0.2s ease-in-out;
       }
 
       .text {
-        color: var(--light);
         transition: 0.2s ease-in-out;
         min-height: 2rem;
-        /* Establecer un alto mínimo */
         display: flex;
-        /* Alinear verticalmente el texto */
-
+        color: var(--primary-color-text);
       }
 
       &:hover {
-        background-color: var(--dark-alt);
-
-        .material-icons,
-        .text {
-          color: var(--primary);
-        }
+        background-color: var(--primary-600);
       }
 
       &.router-link-exact-active {
-        background-color: var(--dark-alt);
-        border-right: 5px solid var(--primary);
-
-        .material-icons,
-        .text {
-          color: var(--primary);
-        }
+        background-color: var(--primary-600);
+        font-weight: bold;
       }
     }
   }
@@ -199,8 +163,6 @@ aside {
     width: var(--sidebar-width);
 
     .menu-toggle-wrap {
-      top: -3rem;
-
       .menu-toggle {
         transform: rotate(-180deg);
       }

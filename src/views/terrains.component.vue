@@ -14,4 +14,4 @@ export default defineComponent({
 
 
 
-<style></style>
+<style scoped></style>

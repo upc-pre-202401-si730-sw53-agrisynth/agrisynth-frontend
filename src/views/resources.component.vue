@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 import ResourcesTableComponent from "@/resources/components/resources-table.component.vue";
 
 export default defineComponent({
-  components: {ResourcesTableComponent},
+  components: { ResourcesTableComponent },
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
