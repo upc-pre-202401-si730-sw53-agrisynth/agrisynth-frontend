@@ -1,6 +1,7 @@
-import {createApp} from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+import "./style.css";
 import PrimeVue from "primevue/config";
 
 import Card from "primevue/card";
@@ -24,28 +25,27 @@ import InputMask from "primevue/inputmask";
 
 import "primevue/resources/themes/aura-light-green/theme.css";
 import "primeflex/primeflex.css";
-import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 
 createApp(App)
-    .use(router)
-    .use(PrimeVue, {ripple: true})
-    .component("pv-input-text", InputText)
-    .component("pv-dropdown", Dropdown)
-    .component("pv-tree-table", TreeTable)
-    .component("pv-dialog", Dialog)
-    .component("pv-button", Button)
-    .component("pv-card", Card)
-    .component("pv-panel", Panel)
-    .component("pv-icon-field", IconField)
-    .component("pv-icon", InputIcon)
-    .component("pv-fieldset", Fieldset)
-    .component("pv-image", Image)
-    .component("pv-divider", Divider)
-    .component("pv-splitter", Splitter)
-    .component("pv-splitter-panel", SplitterPanel)
-    .component("pv-data-table", DataTable)
-    .component("pv-column", Column)
-    .component("pv-float-label", FloatLabel)
-    .component("pv-input-mask", InputMask)
-    .mount("#app");
+  .use(router)
+  .use(PrimeVue, { ripple: true })
+  .component("pv-input-text", InputText)
+  .component("pv-dropdown", Dropdown)
+  .component("pv-tree-table", TreeTable)
+  .component("pv-dialog", Dialog)
+  .component("pv-button", Button)
+  .component("pv-card", Card)
+  .component("pv-panel", Panel)
+  .component("pv-icon-field", IconField)
+  .component("pv-icon", InputIcon)
+  .component("pv-fieldset", Fieldset)
+  .component("pv-image", Image)
+  .component("pv-divider", Divider)
+  .component("pv-splitter", Splitter)
+  .component("pv-splitter-panel", SplitterPanel)
+  .component("pv-data-table", DataTable)
+  .component("pv-column", Column)
+  .component("pv-float-label", FloatLabel)
+  .component("pv-input-mask", InputMask)
+  .mount("#app");

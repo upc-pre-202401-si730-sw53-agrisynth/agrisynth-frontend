@@ -6,9 +6,9 @@ import Subscription from "@/components/start_screen/subscription/subscription.co
 import Recover_password from "@/components/start_screen/password/recover_password.component.vue";
 
 
-export default{
+export default {
   name: "account",
-  components: {Recover_password, Subscription, Sign_in, Register, Home},
+  components: { Recover_password, Subscription, Sign_in, Register, Home },
 }
 </script>
 
@@ -19,5 +19,4 @@ export default{
 
 </template>
 
-<style>
-</style>
+<style scoped></style>

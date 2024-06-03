@@ -55,14 +55,13 @@ export default defineComponent({
     <h1>Terrain Available</h1>
     <div class="terrain-card-container">
       <terrain-card v-for="terrain in terrains" :key="terrain.id" :terrain="terrain"
-                    @terrain-clicked="handleTerrainClick" />
-
+        @terrain-clicked="handleTerrainClick" />
     </div>
   </div>
 
   <div>
-    <pv-dialog class="pv-dialog" v-model:visible="dialogVisible" modal @md-closed="closeDialog" :draggable="false"
-               header="More details">
+    <pv-dialog class="pv-dialog" style="width: 100%; max-width: 25rem;" v-model:visible="dialogVisible" modal
+      @md-closed="closeDialog" :draggable="false" header="More details">
       <pv-image :src="selectedTerrain.image" alt="image" width="100%" preview />
       <h2>{{ selectedTerrain.name }}</h2>
       <div>
@@ -94,7 +93,7 @@ export default defineComponent({
 
   <div>
     <pv-dialog class="pv-dialog" v-model:visible="dialogVisible2" modal @md-closed="closeDialog" :draggable="false"
-               header="Payment form">
+      header="Payment form">
       <div class="flex flex-column gap-2">
         <label for="username">Full name</label>
         <pv-input-text id="username" v-model="username" aria-describedby="username-help" />
@@ -118,7 +117,7 @@ export default defineComponent({
 
   <div>
     <pv-dialog class="pv-dialog" v-model:visible="dialogVisible3" modal @md-closed="closeDialog" :draggable="false"
-               header="Payment">
+      header="Payment">
       <div class="flex flex-column gap-2">
         <label for="card-number">Card number</label>
         <pv-input-text id="cardnumber" v-model.number="cardnum" aria-describedby="cardnumber-help" />
@@ -141,48 +140,23 @@ export default defineComponent({
       </div>
     </pv-dialog>
   </div>
-
 </template>
 
-<style >
-.pv-dialog {
-  width: 40rem;
-}
-
-.pv-fieldset {
-  margin: 1rem 0;
-  /* Agrega un margen arriba y abajo de cada fieldset para separarlos entre sí */
-}
-
-.pv-button {
-  padding: 10px 20px;
-  background-color: #3C5A64;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-
-}
-
+<style scoped>
 .terrain-list {
-  padding: 20px;
+  padding: 3rem;
 }
 
 .terrain-card-container {
   display: flex;
+  align-items: flex-start;
+  gap: 1rem;
   flex-wrap: wrap;
-  justify-content: space-around;
 }
 
-.terrain-card {
-  flex: 1 0 30%;
-  margin: 1rem;
-}
-
-@media (max-width: 800px) {
-  .terrain-card {
-    flex: 1 0 100%;
+@media (min-width: 300px) and (max-width: 1090px) {
+  .terrain-card-container {
+    justify-content: center;
   }
 }
 </style>

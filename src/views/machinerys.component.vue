@@ -1,10 +1,9 @@
-
 <script>
 
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 import MachinaryListComponent from "@/machinerys/components/machinary-list.component.vue";
 export default defineComponent({
-  components: {MachinaryListComponent},
+  components: { MachinaryListComponent },
 })
 </script>
 
@@ -12,8 +11,4 @@ export default defineComponent({
   <machinary-list-component></machinary-list-component>
 </template>
 
-
-
-<style >
-
-</style>
+<style scoped></style>
