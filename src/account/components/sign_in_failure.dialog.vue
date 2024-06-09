@@ -5,7 +5,7 @@ export default{
 </script>
 
 <template>
-  <pv-dialog modal header="Error" :style="{ width: '30rem' }">
+  <pv-dialog modal header="Error">
     <div style="text-align:center">
       <span class="p-text-secondary block mb-5">
         Incorrect Email or Password

@@ -14,11 +14,8 @@ export const getAllDocuments = async () => {
 
 export const uploadDocument = async (formData) => {
     try {
-        const response = await axios.post(BASE_URL, formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        });
+        const response = await axios.post(BASE_URL, formData);
+        console.log("Server response:", response.data);
         return response.data;
     } catch (error) {
         console.error("Error uploading document:", error);

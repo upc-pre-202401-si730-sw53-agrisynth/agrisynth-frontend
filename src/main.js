@@ -22,30 +22,36 @@ import TreeTable from "primevue/treetable";
 import Dropdown from "primevue/dropdown";
 import Panel from "primevue/panel";
 import InputMask from "primevue/inputmask";
+import Toolbar from "primevue/toolbar";
+import Sidebar from "primevue/sidebar";
+import FileUpload from "primevue/fileupload";
 
 import "primevue/resources/themes/aura-light-green/theme.css";
 import "primeflex/primeflex.css";
 import "primeicons/primeicons.css";
 
 createApp(App)
-  .use(router)
-  .use(PrimeVue, { ripple: true })
-  .component("pv-input-text", InputText)
-  .component("pv-dropdown", Dropdown)
-  .component("pv-tree-table", TreeTable)
-  .component("pv-dialog", Dialog)
-  .component("pv-button", Button)
-  .component("pv-card", Card)
-  .component("pv-panel", Panel)
-  .component("pv-icon-field", IconField)
-  .component("pv-icon", InputIcon)
-  .component("pv-fieldset", Fieldset)
-  .component("pv-image", Image)
-  .component("pv-divider", Divider)
-  .component("pv-splitter", Splitter)
-  .component("pv-splitter-panel", SplitterPanel)
-  .component("pv-data-table", DataTable)
-  .component("pv-column", Column)
-  .component("pv-float-label", FloatLabel)
-  .component("pv-input-mask", InputMask)
+    .use(PrimeVue, { ripple: true })
+    .use(router)
+    .component("pv-file-upload", FileUpload)
+    .component("pv-input-text", InputText)
+    .component("pv-dropdown", Dropdown)
+    .component("pv-tree-table", TreeTable)
+    .component("pv-dialog", Dialog)
+    .component("pv-button", Button)
+    .component("pv-card", Card)
+    .component("pv-panel", Panel)
+    .component("pv-icon-field", IconField)
+    .component("pv-icon", InputIcon)
+    .component("pv-fieldset", Fieldset)
+    .component("pv-image", Image)
+    .component("pv-divider", Divider)
+    .component("pv-splitter", Splitter)
+    .component("pv-splitter-panel", SplitterPanel)
+    .component("pv-data-table", DataTable)
+    .component("pv-column", Column)
+    .component("pv-float-label", FloatLabel)
+    .component("pv-input-mask", InputMask)
+    .component('pv-toolbar', Toolbar)
+    .component('pv-sidebar',Sidebar)
   .mount("#app");

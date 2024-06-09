@@ -2,7 +2,7 @@
 <script>
 
 import {defineComponent} from "vue";
-import DocumentsTable from "@/documents/components/documents-table.vue";
+import DocumentsTable from "@/documents/pages/documents-table.vue";
 export default defineComponent({
   components: {DocumentsTable, },
 })

@@ -36,61 +36,75 @@ export default{
 </script>
 
 <template>
-  <pv-card class="card">
+  <div class="main-content">
+    <pv-card class="card">
 
-    <template #title>
-      <h1 style="text-align: center; align-content: center; margin-top: 10px;">Sign In</h1>
-    </template>
+      <template #title>
+        <h1 class="title">Sign In</h1>
+      </template>
 
-    <template #content>
+      <template #content>
 
-      <div style="margin-left: 20px">
-        <label for="email" class="mini_text">Email Address</label>
+        <div style="margin-left: 20px">
+          <label for="email" class="mini_text">Email Address</label>
+          <br>
+          <pv-input-text class="input_text" id="email" v-model="email" aria-label="email-input"/>
+        </div>
+
+        <div style="margin-left: 20px">
+          <label for="password">Password</label>
+          <br>
+          <pv-input-text class="input_text" id="password" v-model="password" aria-label="password-input"/>
+        </div>
+
         <br>
-        <pv-input-text class="input_text" id="email" v-model="email" aria-label="email-input"/>
-      </div>
 
-      <div style="margin-left: 20px">
-        <label for="password">Password</label>
+        <div style="text-align: center">
+          <h5 @click="$router.push('recover-password')">Forgot Password</h5>
+        </div>
+
+        <div style="text-align: center">
+          <h5 @click="$router.push('register')">Don't have a account? Create a new account</h5>
+        </div>
+
         <br>
-        <pv-input-text class="input_text" id="password" v-model="password" aria-label="password-input"/>
-      </div>
 
-      <br>
+        <div style="text-align: center">
+          <pv-button class="mini_button" icon="pi pi-angle-left" style="margin-right: 40px" aria-label="Return"
+                     @click="$router.go(-1)"></pv-button>
+          <pv-button class="large_button" icon="pi pi-sign-in" label="Log in" severity="primary"
+                     @click="signInUser()" :disabled="componentsAreEmpty()"></pv-button>
+          <sign-in-success-dialog v-model:visible="visibleSignInSuccessDialog"></sign-in-success-dialog>
+          <sign-in-failure-dialog v-model:visible="visibleSignInFailureDialog"></sign-in-failure-dialog>
+        </div>
 
-      <div style="text-align: center">
-        <h5 @click="$router.push('recover-password')">Forgot Password</h5>
-      </div>
+      </template>
 
-      <div style="text-align: center">
-        <h5 @click="$router.push('register')">Don't have a account? Create a new account</h5>
-      </div>
+    </pv-card>
+  </div>
 
-      <br>
-
-      <div style="text-align: center">
-        <pv-button class="mini_button" icon="pi pi-angle-left" style="margin-right: 40px" aria-label="Return"
-                   @click="$router.go(-1)"></pv-button>
-        <pv-button class="large_button" icon="pi pi-sign-in" label="Log in" severity="primary"
-                   @click="signInUser()" :disabled="componentsAreEmpty()"></pv-button>
-        <sign-in-success-dialog v-model:visible="visibleSignInSuccessDialog"></sign-in-success-dialog>
-        <sign-in-failure-dialog v-model:visible="visibleSignInFailureDialog"></sign-in-failure-dialog>
-      </div>
-
-    </template>
-
-  </pv-card>
 </template>
 
 <style scoped>
+.main-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.title{
+  text-align: center;
+  color: #4CAF50;
+}
+
 
 /*CARD*/
 .card{
   width: 30rem;
-  margin-top: 15vh;
-  margin-left: 25vw;
   overflow: hidden;
-  background-color: #95C8BC;
+  margin-top: 15vh;
+  background-color: #fcfcfc;
 }
 
 /*LABELS*/
@@ -121,33 +135,23 @@ h5:hover{
 .large_button {
   width: 50%;
   height: 50px;
-  background-color: #3C5A64;
+  background-color: #4CAF50;
   transition-duration: 0.2s;
-}
-
-.large_button:hover {
-  background-color: #ffffff;
-  color: black;
 }
 
 .mini_button{
   transition-duration: 0.2s;
-  background-color: #3C5A64;
+  background-color: #4CAF50;
   margin-left: 20px;
   height: 50px;
   color: white;
 }
 
-.mini_button:hover {
-  background-color: white;
-  color: black;
-}
+
 /*Responsive*/
 @media (max-width: 768px){
   .card {
-    width: 20rem;
-    margin-left: 66px;
-    margin-top: 170px;
+    width: 23rem;
   }
 
   .input_text{

@@ -1,9 +1,9 @@
 <script>
-import Home from "@/components/start_screen/autentication/autentication_view.component.vue";
-import Register from "@/components/start_screen/autentication/register/register.component.vue";
-import Sign_in from "@/components/start_screen/autentication/sign_in/sign_in.component.vue";
-import Subscription from "@/components/start_screen/subscription/subscription.component.vue";
-import Recover_password from "@/components/start_screen/password/recover_password.component.vue";
+import Home from "@/account/pages/account.component.vue";
+import Register from "@/account/pages/register.component.vue";
+import Sign_in from "@/account/pages/sign_in.component.vue";
+import Subscription from "@/account/pages/subscription.component.vue";
+import Recover_password from "@/account/pages/recover_password.component.vue";
 
 
 export default {

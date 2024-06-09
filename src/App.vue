@@ -3,7 +3,10 @@
     <!-- Sidebar -->
     <Sidebar />
     <!-- Content -->
-    <router-view />
+    <div class="content">
+      <router-view />
+    </div>
+
   </div>
 </template>
 
@@ -11,25 +14,22 @@
 import Sidebar from './public/components/Sidebar.vue';
 </script>
 
-<style scoped>
+<style>
+.content{
+  margin-top: 5vh;
+}
+
 button {
-  cursor: pointer;
-  appearance: none;
   border: none;
   outline: none;
-  background: none;
+  margin-right: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.app {
-  display: flex;
-
-  main {
-    flex: 1 1 0;
-    padding: 2rem;
-
-    @media (max-width: 1024px) {
-      padding-left: 6rem;
-    }
-  }
+button:hover {
+  opacity: 0.9;
 }
+
 </style>

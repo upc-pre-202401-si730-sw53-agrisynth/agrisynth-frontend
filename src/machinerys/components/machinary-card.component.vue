@@ -1,16 +1,16 @@
 <template>
   <pv-card class="md-card pv-card-container">
     <template #content>
-      <p><strong>{{ machinary.name }}</strong></p>
-      <p><strong>Price: {{ machinary.price }}</strong></p>
+      <p><strong>{{ machinery.name }}</strong></p>
+      <p><strong>Price: {{ machinery.price }}</strong></p>
       <div class="image-container">
-        <img :src="machinary.image" alt="Machinary Image" class="machinary-image" />
+        <img :src="machinery.image" alt="Machinery Image" class="machinery-image" />
       </div>
       <div class="card-buttons">
-        <pv-button @click="showComprarDialog">Buy</pv-button>
-        <pv-button @click="showAlquilarDialog">Rent</pv-button>
+        <pv-button @click="showPurchaseDialog">Buy</pv-button>
+        <pv-button @click="showRentDialog">Rent</pv-button>
       </div>
-      <pv-dialog v-model:visible="visibleComprar" modal header="Comprar" :style="{ width: '30rem' }">
+      <pv-dialog v-model:visible="isPurchaseDialogVisible" modal header="Comprar" :style="{ width: '30rem' }">
         <div style="text-align:center">
           <form class="form-container">
             <div class="form-group">
@@ -25,12 +25,12 @@
               <label for="reason">Purchase Reason</label>
               <pv-input-text id="reason" v-model="value" aria-describedby="reason-help" class="wide-input" />
             </div>
-            <pv-button label="Iniciar Trámite" class="start-process-button" @click="iniciarTramite">Start Process</pv-button>
+            <pv-button label="Iniciar Trámite" class="start-process-button" @click="startBankProcess">Start Process</pv-button>
           </form>
         </div>
       </pv-dialog>
 
-      <pv-dialog v-model:visible="visibleAlquilar" modal header="Alquilar" :style="{ width: '30rem' }">
+      <pv-dialog v-model:visible="isRentDialogVisible" modal header="Alquilar" :style="{ width: '30rem' }">
         <div style="text-align:center">
           <form class="form-container">
             <div class="form-group">
@@ -45,7 +45,7 @@
               <label for="reason">Rent Reason</label>
               <pv-input-text id="reason" v-model="value" aria-describedby="reason-help" class="wide-input" />
             </div>
-            <pv-button label="Iniciar Trámite" class="start-process-button" @click="iniciarTramite">Start Process</pv-button>
+            <pv-button label="Iniciar Trámite" class="start-process-button" @click="startBankProcess">Start Process</pv-button>
           </form>
         </div>
       </pv-dialog>
@@ -85,19 +85,19 @@
 </template>
 
 <script>
-import {Machinary} from "@/machinerys/model/machinary.entity.js";
+import {Machinery} from "@/machinerys/model/machinary.entity.js";
 export default {
-  name: "machinary-card",
+  name: "machinery-card",
   components: {},
 
   props: {
-    machinary: Machinary,
+    machinery: Machinery,
   },
   data() {
     return {
       machineryItems: [],
-      visibleComprar: false,
-      visibleAlquilar: false,
+      isPurchaseDialogVisible: false,
+      isRentDialogVisible: false,
       visiblePago: false,
       cardNumber: '',
       cardName: '',
@@ -108,19 +108,19 @@ export default {
     };
   },
   methods: {
-    showComprarDialog() {
-      this.visibleComprar = true;
+    showPurchaseDialog() {
+      this.isPurchaseDialogVisible = true;
     },
-    showAlquilarDialog() {
-      this.visibleAlquilar = true;
+    showRentDialog() {
+      this.isRentDialogVisible = true;
     },
     confirmPayment() {
       this.visiblePago = false;
     },
-    iniciarTramite() {
+    startBankProcess() {
       this.visiblePago = true;
-      this.visibleComprar = false;
-      this.visibleAlquilar= false;
+      this.isPurchaseDialogVisible = false;
+      this.isRentDialogVisible= false;
     }
   }
 };
@@ -128,7 +128,7 @@ export default {
 </script>
 
 
-<style >
+<style scoped>
 .md-card {
   border-radius: 5px;
   padding: 16px;
@@ -203,7 +203,7 @@ export default {
   overflow: hidden;
 }
 
-.machinary-image {
+.machinery-image {
   width: 100%;
   height: auto;
   display: block;

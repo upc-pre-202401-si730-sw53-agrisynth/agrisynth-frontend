@@ -25,6 +25,11 @@ export default defineComponent({
       cardname: ref(null),
       expiration: ref(null),
       sCode: ref(null),
+
+      reasons: [
+        { name: 'Personal Use', code: 'P' },
+        { name: 'Business Use', code: 'E' },
+      ]
     };
   },
   async mounted() {
@@ -52,7 +57,7 @@ export default defineComponent({
 <template>
 
   <div class="terrain-list">
-    <h1>Terrain Available</h1>
+    <h1 class="title">Terrain Available</h1>
     <div class="terrain-card-container">
       <terrain-card v-for="terrain in terrains" :key="terrain.id" :terrain="terrain"
         @terrain-clicked="handleTerrainClick" />
@@ -60,7 +65,7 @@ export default defineComponent({
   </div>
 
   <div>
-    <pv-dialog class="pv-dialog" style="width: 100%; max-width: 25rem;" v-model:visible="dialogVisible" modal
+    <pv-dialog class="pv-dialog" style="width: 100%; max-width: 40rem;" v-model:visible="dialogVisible" modal
       @md-closed="closeDialog" :draggable="false" header="More details">
       <pv-image :src="selectedTerrain.image" alt="image" width="100%" preview />
       <h2>{{ selectedTerrain.name }}</h2>
@@ -84,6 +89,7 @@ export default defineComponent({
           <p class="m-0">{{ selectedTerrain.sizeSquareMeters }} square meter</p>
         </pv-fieldset>
       </div>
+      <br>
       <div class="flex justify-content-center gap-2">
         <pv-button @click="dialogVisible = false, dialogVisible2 = true" class="pv-button">Rent
           S/{{ selectedTerrain.rent }}</pv-button>
@@ -97,20 +103,22 @@ export default defineComponent({
       <div class="flex flex-column gap-2">
         <label for="username">Full name</label>
         <pv-input-text id="username" v-model="username" aria-describedby="username-help" />
-        <small id="username-help">Type your full name</small>
       </div>
+      <br>
       <div class="flex flex-column gap-2">
         <label for="location">Address</label>
         <pv-input-text id="location" v-model="location" aria-describedby="location-help" />
-        <small id="location-help">Enter the address where you live</small>
       </div>
+      <br>
       <div class="flex flex-column gap-2">
         <label for="reason">Reason for purchase or rental</label>
-        <pv-input-text id="reason" v-model="reason" aria-describedby="reason-help" />
-        <small id="reason-help">Enter the reason why you buy or rent.</small>
+        <pv-dropdown id="reason" :options="reasons" optionLabel="name" placeholder="Select a Reason" v-model="reason" aria-label="reason of purchase or rent"></pv-dropdown>
       </div>
-      <div class="flex justify-content-end gap-2">
-        <pv-button @click="dialogVisible2 = false, dialogVisible3 = true" class="pv-button">Start pay</pv-button>
+      <br>
+      <div class="payment-container">
+        <div class="payment-button">
+          <pv-button @click="dialogVisible2 = false, dialogVisible3 = true">Start payment</pv-button>
+        </div>
       </div>
     </pv-dialog>
   </div>
@@ -122,27 +130,39 @@ export default defineComponent({
         <label for="card-number">Card number</label>
         <pv-input-text id="cardnumber" v-model.number="cardnum" aria-describedby="cardnumber-help" />
       </div>
+      <br>
       <div class="flex flex-column gap-2">
         <label for="cardname">Name in card</label>
         <pv-input-text id="cardname" v-model="cardname" aria-describedby="cardname-help" />
       </div>
+      <br>
       <div class="flex flex-column gap-2">
         <label for="expiration">Expiration date</label>
         <pv-input-text id="expiration" v-model="expiration" aria-describedby="expiration-help" />
       </div>
+      <br>
       <div class="flex flex-column gap-2">
         <label for="code">Security code</label>
         <pv-input-text id="code" v-model="sCode" aria-describedby="code-help" />
       </div>
+      <br>
       <p>Amount payable S/{{ selectedTerrain.sale }}</p>
-      <div class="flex justify-content-end gap-2">
-        <pv-button @click="dialogVisible3 = false" class="pv-button">Pay</pv-button>
+      <div class="payment-container">
+        <div class="payment-button">
+          <pv-button @click="dialogVisible3 = false" class="pv-button">Pay</pv-button>
+        </div>
       </div>
+
+
     </pv-dialog>
   </div>
 </template>
 
 <style scoped>
+.title{
+  color: #4CAF50;
+}
+
 .terrain-list {
   padding: 3rem;
 }
@@ -152,6 +172,16 @@ export default defineComponent({
   align-items: flex-start;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.payment-container{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.payment-button{
+  align-items: center;
 }
 
 @media (min-width: 300px) and (max-width: 1090px) {

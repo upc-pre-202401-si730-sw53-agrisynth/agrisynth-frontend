@@ -1,7 +1,7 @@
 <script>
 
 import { defineComponent } from "vue";
-import TerrainListComponent from "@/terrains/components/terrain-list.component.vue";
+import TerrainListComponent from "@/terrains/pages/terrain-list.component.vue";
 
 export default defineComponent({
   components: { TerrainListComponent },

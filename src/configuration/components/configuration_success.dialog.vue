@@ -5,7 +5,7 @@ export default{
 </script>
 
 <template>
-  <pv-dialog modal header="Success!" :style="{ width: '30rem' }">
+  <pv-dialog modal header="Success!">
     <div style="text-align:center">
       <span class="p-text-secondary block mb-5">
         All changes have been saved

@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const BASE_URL = "https://cropsphere-fake-api.onrender.com/api";
+const BASE_URL = "http://localhost:3000";
 
 export const getAllMachinary = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/machinery`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching machinary:", error);
+    console.error("Error fetching machinery:", error);
     throw error;
   }
 };
