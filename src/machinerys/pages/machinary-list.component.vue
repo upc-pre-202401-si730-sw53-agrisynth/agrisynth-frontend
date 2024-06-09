@@ -8,13 +8,13 @@ export default defineComponent({
   components: { MachinaryCard },
   data() {
     return {
-      machinarys: [],
+      machinery: [],
       searchQuery: "",
     };
   },
   async mounted() {
     try {
-      this.machinarys = await getAllMachinary();
+      this.machinery = await getAllMachinary();
     } catch (error) {
     }
   }
@@ -26,7 +26,7 @@ export default defineComponent({
 <template>
   <div class="body">
     <div class="machinery-list">
-      <h1 class="title">Available Machineries</h1>
+      <h1 class="title">Available Machinery</h1>
       <div class="card flex flex-wrap justify-content-end gap-3">
         <pv-icon-field iconPosition="right">
           <pv-icon class="pi pi-search"></pv-icon>
@@ -35,8 +35,8 @@ export default defineComponent({
       </div>
     </div>
 
-    <div class="machinary-card-container">
-      <machinary-card v-for="machinary in machinarys" :key="machinary.id" :machinary="machinary" />
+    <div class="machinery-card-container">
+      <machinary-card v-for="machinary in machinery" :key="machinary.id" :machinery="machinary" />
     </div>
   </div>
 
@@ -51,16 +51,17 @@ export default defineComponent({
 .title {
   margin-bottom: 20px;
   padding-right: 800px;
+  color: #4CAF50;
 }
 
-.machinary-card-container {
+.machinery-card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 70px;
 }
 
 @media (max-width: 767px) {
-  .machinary-card-container {
+  .machinery-card-container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }

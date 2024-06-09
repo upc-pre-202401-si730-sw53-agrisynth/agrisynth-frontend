@@ -5,7 +5,7 @@ export default{
 </script>
 
 <template>
-  <pv-dialog modal header="Success" :style="{ width: '30rem' }">
+  <pv-dialog modal header="Success">
     <div style="text-align:center; margin-bottom:200px;">
       <div>
         <span style="">
@@ -13,7 +13,7 @@ export default{
       </span>
       </div>
       <div>
-        <pv-button label="Enter" severity="warning" style="margin-top: 20px;"
+        <pv-button label="Enter" severity="Success" style="margin-top: 20px;"
                    @click="$router.push('/')"></pv-button>
       </div>
     </div>

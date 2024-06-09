@@ -14,7 +14,7 @@ export default{
               </span>
       <br>
 
-      <pv-button label="$99/month" severity="warning" style="margin-top: 20px; "></pv-button>
+      <pv-button label="$99/month" severity="Info" style="margin-top: 20px; "></pv-button>
     </div>
 
   </pv-dialog>

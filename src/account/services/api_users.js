@@ -1,9 +1,9 @@
 import axios from "axios";
-const BASE_URL = "https://cropsphere-fake-api.onrender.com/api/";
+const BASE_URL = "http://localhost:3000";
 
 const getUsers = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}users`);
+    const response = await axios.get(`${BASE_URL}/users`);
     return response.data;
   } catch (error) {
     console.error("Error fetching users:", error);
@@ -12,7 +12,7 @@ const getUsers = async () => {
 };
 const getUserByName = async (name) => {
   try {
-    const response = await axios.get(`${BASE_URL}users`);
+    const response = await axios.get(`${BASE_URL}/users`);
     const users = response.data;
     const user = users.find((user) => user.name === name);
     if (!user) {
@@ -27,7 +27,7 @@ const getUserByName = async (name) => {
 
 const getUserByEmail = async (email) => {
   try {
-    const response = await axios.get(`${BASE_URL}users`);
+    const response = await axios.get(`${BASE_URL}/users`);
     const users = response.data;
     const user = users.find((user) => user.email === email);
     if (!user) {

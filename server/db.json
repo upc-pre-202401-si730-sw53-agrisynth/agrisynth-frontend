@@ -67,7 +67,7 @@
       "image": "https://img10.naventcdn.com/avisos/resize/11/00/66/27/03/74/1200x1200/358239614.jpg?isFirstImage=true"
     }
   ],
-  "machinary": [
+  "machinery": [
     {
       "id": "1",
       "name": "Tractor Massey Ferguson 5455",
@@ -164,47 +164,145 @@
   "teams": [
     {
       "id": 4,
-      "name": "Development"
+      "name": "Develop"
     },
     {
       "id": 5,
-      "name": "Hola"
+      "name": "Feature"
+    },
+    {
+      "id": 6,
+      "name": "Hotfix"
+    },
+    {
+      "id": 7,
+      "name": "Main"
+    },
+    {
+      "id": 8,
+      "name": "Deployment",
+      "value": {
+        "id": null,
+        "name": ""
+      }
+    },
+    {
+      "id": 10,
+      "name": "Release"
     }
   ],
   "workers": [
     {
-      "id": 1,
-      "name": "Alice"
-    },
-    {
-      "id": 4,
-      "name": "Edu"
-    },
-    {
       "id": 5,
-      "name": "Luis"
+      "name": "Mariana"
+    },
+    {
+      "id": 6,
+      "name": "Natanael"
+    },
+    {
+      "id": 7,
+      "name": "Marcelo"
+    },
+    {
+      "id": 8,
+      "name": "Piero"
+    },
+    {
+      "id": 9,
+      "name": "Eduardo"
     }
   ],
   "teamWorkers": [
     {
-      "teamId": 5,
-      "workerId": 1,
-      "id": 6
+      "teamId": 6,
+      "workerId": 8,
+      "id": 1
+    },
+    {
+      "teamId": 8,
+      "workerId": 7,
+      "id": 2
+    },
+    {
+      "teamId": 7,
+      "workerId": 5,
+      "id": 3
+    },
+    {
+      "teamId": 10,
+      "workerId": 6,
+      "id": 4
     }
   ],
-
   "documents": [
     {
       "id": 1,
-      "name": "informeambiental.docx"
+      "name": "FirstDocument"
     },
     {
       "id": 2,
-      "name": "informederiesgo.docx"
+      "name": "ResourceManagement"
     },
     {
       "id": 3,
-      "name": "listademaquinarias.pdf"
+      "name": "MyDocument"
+    },
+    {
+      "id": 4,
+      "name": "AllTheDocuments"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "SN_Marcelo",
+      "first-name": "Marcelo",
+      "last-name": "Neyra",
+      "email": "marcelo@gmail.com",
+      "phone-number": 999888777,
+      "identification-number": 77766655,
+      "password": "P@ssW0rd"
+    },
+    {
+      "id": "2",
+      "username": "Ana",
+      "first-name": "Mariana",
+      "last-name": "Chambi",
+      "email": "mariana@outlook.com",
+      "phone-number": 987654321,
+      "identification-number": 12345678,
+      "password": "C0ntr@seN4"
+    },
+    {
+      "id": "3",
+      "username": "Eddy",
+      "first-name": "Eduardo",
+      "last-name": "Soto",
+      "email": "eduardo@ymail.com",
+      "phone-number": 912345678,
+      "identification-number": 88877766,
+      "password": "Edu4rd%s"
+    },
+    {
+      "id": "4",
+      "username": "Natanael",
+      "first-name": "Natanael",
+      "last-name": "Mendoza",
+      "email": "natael2024@hotmail.com",
+      "phone-number": 900111222,
+      "identification-number": 87654321,
+      "password": "naTana3$"
+    },
+    {
+      "id": "5",
+      "username": "Piero Ventura",
+      "first-name": "Piero",
+      "last-name": "Ventura",
+      "email": "pieroventura@gmail.com",
+      "phone-number": 966222111,
+      "identification-number": 49871254,
+      "password": "pier0&Ventura"
     }
   ]
 }

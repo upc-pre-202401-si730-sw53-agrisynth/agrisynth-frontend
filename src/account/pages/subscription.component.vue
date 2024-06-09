@@ -19,46 +19,59 @@ export default{
 </script>
 
 <template>
-  <pv-card class="card">
-    <template #title>
-      <h4>Select your Subscription Plan</h4>
-    </template>
-    <template #content>
-      <div>
-        <pv-button class="large_button" icon="pi pi-user" label="Advisory Plan" severity="primary"
-                   @click="$router.push('/')"></pv-button>
-        <div class="twoBlock">
-          <pv-button class="mini_button" icon="pi pi-question-circle" text raised rounded
-                     aria-label="Subscription Description" severity="contrast" @click="visibleAD = true"/>
-          <advisory-plan-dialog v-model:visible="visibleAD" ></advisory-plan-dialog>
+  <div class="main-content">
+    <pv-card class="card">
+      <template #title>
+        <h4 class="title">Select your Subscription Plan</h4>
+      </template>
+      <template #content>
+        <div>
+          <pv-button class="large_button" icon="pi pi-user" label="Advisory Plan" severity="primary"
+                     @click="$router.push('/')"></pv-button>
+          <div class="twoBlock">
+            <pv-button class="mini_button" icon="pi pi-question-circle" text raised rounded
+                       aria-label="Subscription Description" severity="contrast" @click="visibleAD = true"/>
+            <advisory-plan-dialog v-model:visible="visibleAD" ></advisory-plan-dialog>
+          </div>
         </div>
-      </div>
 
-      <br>
-      <div>
-        <pv-button class="large_button" icon="pi pi-user" label="Corporate Plan" severity="primary"
-                   @click="$router.push('/')"></pv-button>
-        <div class="twoBlock">
-          <pv-button class="mini_button" icon="pi pi-question-circle" text raised rounded
-                     aria-label="Subscription Description" severity="contrast" @click="visibleCOR = true"/>
-          <corporate-plan-dialog v-model:visible="visibleCOR"></corporate-plan-dialog>
+        <br>
+        <div>
+          <pv-button class="large_button" icon="pi pi-user" label="Corporate Plan" severity="primary"
+                     @click="$router.push('/')"></pv-button>
+          <div class="twoBlock">
+            <pv-button class="mini_button" icon="pi pi-question-circle" text raised rounded
+                       aria-label="Subscription Description" severity="contrast" @click="visibleCOR = true"/>
+            <corporate-plan-dialog v-model:visible="visibleCOR"></corporate-plan-dialog>
+          </div>
         </div>
-      </div>
-    </template>
-  </pv-card>
+      </template>
+    </pv-card>
+  </div>
+
 </template>
 
 <style scoped>
 
-/*CARDS*/
+.main-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
 
+.title{
+  text-align: center;
+  color: #4CAF50;
+}
+
+/*CARDS*/
 .card{
   width: 30rem;
-  text-align: center;
-  margin-top: 30vh;
-  margin-left: 25vw;
   overflow: hidden;
-  background-color: #95C8BC;
+  margin-top: 25vh;
+  background-color: #fcfcfc;
 }
 
 /*BUTTONS*/
@@ -66,26 +79,15 @@ export default{
   height: 10%;
   font-size: 10px;
   transition-duration: 0.2s;
-  background-color: #3C5A64;
+  background-color: #4CAF50;
   margin-left: 20px;
   color: white;
 }
 
-.mini_button:hover {
-  background-color: white;
-  color: black;
-}
-
-
 .large_button {
   width: 50%;
-  background-color: #3C5A64;
+  background-color: #4CAF50;
   transition-duration: 0.2s;
-}
-
-.large_button:hover {
-  background-color: #ffffff;
-  color: black;
 }
 
 /*BLOCKS*/

@@ -1,4 +1,4 @@
-export class Machinary{
+export class Machinery {
     constructor(id = '', name = '', price = '', image = '') {
         this.id = id;
         this.name = name;

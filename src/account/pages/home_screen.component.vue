@@ -1,5 +1,5 @@
 <script>
-import Home from "@/account/pages/autentication_view.component.vue";
+import Home from "@/account/pages/account.component.vue";
 import Register from "@/account/pages/register.component.vue";
 import Sign_in from "@/account/pages/sign_in.component.vue";
 import Subscription from "@/account/pages/subscription.component.vue";
