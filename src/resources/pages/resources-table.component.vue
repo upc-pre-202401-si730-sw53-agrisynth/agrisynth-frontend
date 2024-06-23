@@ -1,6 +1,6 @@
 <script>
 import { defineComponent} from "vue";
-import { getAllResources } from "@/resources/services/resource.api.service.js";
+import { ResourceApiService } from "@/resources/services/resource.api.service.js";
 import Resource_creation_dialog from "@/resources/components/resource-creation.dialog.vue";
 import Resource_edition_dialog from "@/resources/components/resource-edition.dialog.vue";
 import Resource_deletion_dialog from "@/resources/components/resource-deletion.dialog.vue";
@@ -15,11 +15,15 @@ export default defineComponent({
       isEditionDialogVisible: false,
       isDeletionDialogVisible: false,
       isCreationDialogVisible: false,
+
+      //Service
+      resourceService: null,
     };
   },
   async mounted() {
     try {
-      this.resources = await getAllResources();
+      this.resourceService = new ResourceApiService();
+      this.resources = await this.resourceService.getAllResources();
     } catch (error) {
       console.error("Error al obtener los recursos:", error);
     }

@@ -1,5 +1,5 @@
 <script>
-import {updateDocument} from "@/documents/services/document-api.service.js";
+import {DocumentApiService} from "@/documents/services/document-api.service.js"
 
 export default {
   name: 'documents-edit-dialog',
@@ -15,6 +15,9 @@ export default {
       isDialogVisible: false,
       localNewDocumentName: this.newDocumentName,
       localSelectedDocument: this.selectedDocument,
+
+      //Services
+      documentService: null,
     }
   },
 
@@ -30,7 +33,8 @@ export default {
   methods:{
     async updateDocumentName(documentId) {
       try {
-        await updateDocument(documentId, { name: this.localNewDocumentName });
+        this.documentService = new DocumentApiService();
+        await this.documentService.updateDocument(documentId, { name: this.localNewDocumentName });
         await this.callFetchDocuments();
         this.$emit('update:newDocumentName',this.localNewDocumentName);
         this.$emit('update:selectedDocument',this.localSelectedDocument);

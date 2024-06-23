@@ -1,6 +1,6 @@
 <script>
 import { defineComponent, ref } from "vue";
-import { getAllDocuments, deleteDocument } from "@/documents/services/document-api.service.js";
+import {DocumentApiService} from "@/documents/services/document-api.service.js"
 import Resource_creation_dialog from "@/resources/components/resource-creation.dialog.vue";
 import DocumentsUploadDialog from "@/documents/components/documents_upload.dialog.vue";
 import DocumentsEditDialog from "@/documents/components/documents_edit.dialog.vue";
@@ -18,6 +18,10 @@ export default defineComponent({
       isDeleteDialogVisible: false,
       newDocumentName: "",
       refresh: ref(false),
+
+      //Services
+      documentService: null,
+
     };
   },
   async mounted() {
@@ -26,7 +30,8 @@ export default defineComponent({
   methods: {
     async fetchDocuments() {
       try {
-        this.documents = await getAllDocuments();
+        this.documentService = new DocumentApiService();
+        this.documents = this.documentService.getAllDocuments();
       } catch (error) {
         console.error("Error fetching documents:", error);
       }

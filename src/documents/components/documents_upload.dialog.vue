@@ -1,5 +1,5 @@
 <script>
-import {uploadDocument} from "@/documents/services/document-api.service.js";
+import {DocumentApiService} from "@/documents/services/document-api.service.js"
 export default{
   name: 'documents-upload-dialog',
 
@@ -8,6 +8,9 @@ export default{
       isDialogVisible: false,
       localNewDocumentName: "",
       file: null,
+
+      //Services
+      documentService: null,
     }
   },
 
@@ -29,7 +32,8 @@ export default{
             console.log(pair[0]+ ', ' + pair[1]);
           }
 
-          await uploadDocument(formData);
+          this.documentService = new DocumentApiService();
+          await this.documentService.uploadDocument(formData);
           await this.callFetchDocuments();
           this.closeDialog();
         } catch (error) {

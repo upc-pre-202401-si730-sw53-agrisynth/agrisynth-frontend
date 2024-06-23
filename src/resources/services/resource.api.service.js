@@ -1,62 +1,26 @@
-import axios from "axios";
-
-// URL base para la API falsa de terrenos
-const BASE_URL = "http://localhost:3000";
+import http from '@/shared/services/http-common.js'
 
 // Método para obtener todos los terrenos
-export const getAllResources = async () => {
-  try {
-    const response = await axios.get(`${BASE_URL}/resources`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching resources:", error);
-    throw error;
-  }
-};
 
-// Método para obtener un terreno por su ID
-export const getResourceById = async (resourceId) => {
-  try {
-    const response = await axios.get(`${BASE_URL}/resources/${resourceId}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching resource with ID ${resourceId}:`, error);
-    throw error;
+export class ResourceApiService{
+  endpoint = '/resources';
+  getAllResources(){
+    return http.get(this.endpoint);
   }
-};
 
-// Método para crear un nuevo terreno
-export const createResource = async (resourceData) => {
-  try {
-    const response = await axios.post(`${BASE_URL}/resources`, resourceData);
-    return response.data;
-  } catch (error) {
-    console.error("Error creating resource:", error);
-    throw error;
+  getResourceById(resourceId){
+    return http.get(`${this.endpoint}/${resourceId}`)
   }
-};
 
-// Método para actualizar un terreno existente
-export const updateResource = async (resourceId, resourceData) => {
-  try {
-    const response = await axios.put(
-      `${BASE_URL}/resources/${resourceId}`,
-      resourceData
-    );
-    return response.data;
-  } catch (error) {
-    console.error(`Error updating resource with ID ${resourceId}:`, error);
-    throw error;
+  createResouce(resourceData){
+    return http.post(this.endpoint,resourceData);
   }
-};
 
-// Método para eliminar un terreno por su ID
-export const deleteResource = async (resourceId) => {
-  try {
-    const response = await axios.delete(`${BASE_URL}/resources/${resourceId}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error deleting resource with ID ${resourceId}:`, error);
-    throw error;
+  updateResource(resourceId,resourceData){
+    return http.put(`${this.endpoint}/${resourceId}`,resourceData);
   }
-};
+
+  deleteResource(resourceId){
+    return http.delete(`${this.endpoint}/${resourceId}`);
+  }
+}

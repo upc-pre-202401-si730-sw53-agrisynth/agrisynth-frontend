@@ -1,5 +1,5 @@
 <script>
-import {deleteDocument} from "@/documents/services/document-api.service.js";
+import {DocumentApiService} from "@/documents/services/document-api.service.js"
 
 export default{
   name: 'documents-delete-dialog',
@@ -23,7 +23,8 @@ export default{
   methods:{
     async deleteDocument(documentId) {
       try {
-        await deleteDocument(documentId);
+        this.documentService = new DocumentApiService();
+        await this.documentService.deleteDocument(documentId);
         await this.fetchDocuments();
         this.closeDialog();
       } catch (error) {
