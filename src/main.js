@@ -4,6 +4,7 @@ import router from "./router";
 import "./style.css";
 import PrimeVue from "primevue/config";
 
+//Components
 import Card from "primevue/card";
 import Button from "primevue/button";
 import Dialog from "primevue/dialog";
@@ -26,13 +27,29 @@ import Toolbar from "primevue/toolbar";
 import Sidebar from "primevue/sidebar";
 import FileUpload from "primevue/fileupload";
 
+//Primevue
 import "primevue/resources/themes/aura-light-green/theme.css";
 import "primeflex/primeflex.css";
 import "primeicons/primeicons.css";
 
+//Pinia
+import {createPinia} from "pinia";
+const pinia = createPinia();
+
+//Authentication Services
+import ToastService from "primevue/toastservice";
+import DialogService from "primevue/dialogservice";
+import ConfirmationService from "primevue/confirmationservice";
+
+
+
 createApp(App)
     .use(PrimeVue, { ripple: true })
     .use(router)
+    .use(pinia)
+    .use(ToastService)
+    .use(DialogService)
+    .use(ConfirmationService)
     .component("pv-file-upload", FileUpload)
     .component("pv-input-text", InputText)
     .component("pv-dropdown", Dropdown)
