@@ -17,7 +17,7 @@ import NotFoundComponent from "@/public/pages/not-found-component.vue";
 import {authenticationGuard} from "@/iam/services/authentication.guard.js";
 import SignInComponent from "@/iam/pages/sign-in.component.vue";
 import SignUpComponent from "@/iam/pages/sign-up.component.vue";
-
+import HomeComponent from "@/public/pages/welcome.component.vue"
 
 const router = createRouter({
     history: createWebHistory(),
@@ -44,6 +44,7 @@ const router = createRouter({
             ],
         },
 
+        {path: '/welcome', component: HomeComponent},
         {path: '/support', component: Support},
         {path: '/settings', component: Settings},
 
