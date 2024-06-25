@@ -18,7 +18,8 @@ export class TeamWorkerApiService{
         return http.put(`${this.endpoint}/${teamWorkerId}`, teamWorkerData);
     }
 
-    deleteTeamWorker(teamWorkerId){
-        return http.delete(this.endpoint, teamWorkerId);
+    deleteTeamWorker(teamWorkerId) {
+        return http.delete(`${this.endpoint}/${teamWorkerId}`);
     }
+
 }
