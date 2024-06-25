@@ -18,7 +18,7 @@ export class TeamApiService{
         return http.put(`${this.endpoint}/${teamId}`, teamData);
     }
 
-    deleteTeam(teamId){
-        return http.delete(this.endpoint, teamId);
+    deleteTeam(teamId) {
+        return http.delete(`${this.endpoint}/${teamId}`);
     }
 }

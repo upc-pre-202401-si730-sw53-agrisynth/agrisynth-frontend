@@ -18,7 +18,7 @@ export class WorkerApiService{
         return http.put(`${this.endpoint}/${workerId}`, workerData);
     }
 
-    deleteWorker(workerId){
-        return http.delete(this.endpoint, workerId);
+    deleteWorker(workerId) {
+        return http.delete(`${this.endpoint}/${workerId}`);
     }
 }
