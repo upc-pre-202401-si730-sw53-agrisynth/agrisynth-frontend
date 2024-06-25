@@ -1,42 +1,22 @@
-import axios from 'axios';
+import http from '@/shared/services/http-common.js'
 
-const BASE_URL = 'http://localhost:3000/documents';
 
-export const getAllDocuments = async () => {
-    try {
-        const response = await axios.get(BASE_URL);
-        return response.data;
-    } catch (error) {
-        console.error("Error fetching documents:", error);
-        throw error;
+export class DocumentApiService{
+    endpoint = '/documents';
+
+    getAllDocuments() {
+        return http.get(this.endpoint);
     }
-};
 
-export const uploadDocument = async (formData) => {
-    try {
-        const response = await axios.post(BASE_URL, formData);
-        console.log("Server response:", response.data);
-        return response.data;
-    } catch (error) {
-        console.error("Error uploading document:", error);
-        throw error;
+    uploadDocument(documentData){
+        return http.post(this.endpoint, documentData);
     }
-};
 
-export const updateDocument = async (documentId, updateData) => {
-    try {
-        await axios.patch(`${BASE_URL}/${documentId}`, updateData);
-    } catch (error) {
-        console.error(`Error updating document with ID ${documentId}:`, error);
-        throw error;
+    updateDocument(documentId, documentData){
+        return http.put(`${this.endpoint}/${documentId}`, documentData);
     }
-};
 
-export const deleteDocument = async (documentId) => {
-    try {
-        await axios.delete(`${BASE_URL}/${documentId}`);
-    } catch (error) {
-        console.error(`Error deleting document with ID ${documentId}:`, error);
-        throw error;
+    deleteDocument(documentId){
+        return http.delete(`${this.endpoint}/${documentId}`);
     }
-};
+}

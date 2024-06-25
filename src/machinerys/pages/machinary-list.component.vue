@@ -1,7 +1,7 @@
 <script>
 import MachinaryCard from "@/machinerys/components/machinary-card.component.vue";
 import { defineComponent } from "vue";
-import { getAllMachinary } from "@/machinerys/services/machinary.api.service.js";
+import {MachineryApiService} from "@/machinerys/services/machinary.api.service.js";
 export default defineComponent({
 
   name: "machinary-list",
@@ -10,11 +10,16 @@ export default defineComponent({
     return {
       machinery: [],
       searchQuery: "",
+
+      //Machinery Service
+      machineryService : null,
     };
   },
   async mounted() {
     try {
-      this.machinery = await getAllMachinary();
+      this.machineryService = new MachineryApiService();
+      const response = await this.machineryService.getAllMachinery();
+      this.machinery = response.data;
     } catch (error) {
     }
   }

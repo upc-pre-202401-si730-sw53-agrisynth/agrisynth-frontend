@@ -2,7 +2,7 @@
 
 import { defineComponent, ref } from "vue";
 import TerrainCard from "@/terrains/components/terrain-card.component.vue";
-import { getAllTerrains, getTerrainById } from "@/terrains/services/terrain.api.service.js";
+import { TerrainApiService } from "@/terrains/services/terrain.api.service.js";
 
 export default defineComponent({
 
@@ -26,6 +26,9 @@ export default defineComponent({
       expiration: ref(null),
       sCode: ref(null),
 
+      //TerrainApiService
+      terrainService: null,
+
       reasons: [
         { name: 'Personal Use', code: 'P' },
         { name: 'Business Use', code: 'E' },
@@ -34,8 +37,9 @@ export default defineComponent({
   },
   async mounted() {
     try {
-      // Llama a la función para obtener los terrenos desde la API
-      this.terrains = await getAllTerrains();
+      this.terrainService = new TerrainApiService();
+      const response = await this.terrainService.getAllTerrains();
+      this.terrains = response.data;
     } catch (error) {
       console.error('Error al obtener los terrenos:', error);
       // Maneja el error según tus necesidades (por ejemplo, muestra un mensaje de error al usuario)
@@ -43,7 +47,8 @@ export default defineComponent({
   },
   methods: {
     async handleTerrainClick(terrainId) {
-      this.selectedTerrain = await getTerrainById(terrainId);
+      let response = await this.terrainService.getTerrainById(terrainId);
+      this.selectedTerrain = response.data;
       this.dialogVisible = true;
     },
     closeDialog() {
@@ -67,7 +72,7 @@ export default defineComponent({
   <div>
     <pv-dialog class="pv-dialog" style="width: 100%; max-width: 40rem;" v-model:visible="dialogVisible" modal
       @md-closed="closeDialog" :draggable="false" header="More details">
-      <pv-image :src="selectedTerrain.image" alt="image" width="100%" preview />
+      <pv-image :src="selectedTerrain.imageUrl" alt="image" width="100%" preview />
       <h2>{{ selectedTerrain.name }}</h2>
       <div>
         <pv-fieldset legend="Description" class="pv-fieldset">
@@ -91,7 +96,7 @@ export default defineComponent({
       </div>
       <br>
       <div class="flex justify-content-center gap-2">
-        <pv-button @click="dialogVisible = false, dialogVisible2 = true" class="pv-button">Rent
+        <pv-button @click="dialogVisible = false; dialogVisible2 = true" class="pv-button">Rent
           S/{{ selectedTerrain.rent }}</pv-button>
       </div>
     </pv-dialog>
@@ -117,7 +122,7 @@ export default defineComponent({
       <br>
       <div class="payment-container">
         <div class="payment-button">
-          <pv-button @click="dialogVisible2 = false, dialogVisible3 = true">Start payment</pv-button>
+          <pv-button @click="dialogVisible2 = false; dialogVisible3 = true">Start payment</pv-button>
         </div>
       </div>
     </pv-dialog>
