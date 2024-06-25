@@ -1,21 +1,24 @@
-import axios from 'axios';
+import http from "@/shared/services/http-common.js";
 
-const API_URL = 'http://localhost:3000/teamWorkers';
+export class TeamWorkerApiService{
+    endpoint = '/team-workers';
+    getAllTeamWorkers(){
+        return http.get(this.endpoint);
+    }
 
-const getAll = () => axios.get(API_URL);
+    getTeamWorkerById(teamWorkerId){
+        return http.get(`${this.endpoint}/${teamWorkerId}`);
+    }
 
-const get = (id) => axios.get(`${API_URL}/${id}`);
+    createTeamWorker(teamWorkerData){
+        return http.post(this.endpoint, teamWorkerData);
+    }
 
-const create = (data) => axios.post(API_URL, data);
+    updateTeamWorker(teamWorkerId, teamWorkerData){
+        return http.put(`${this.endpoint}/${teamWorkerId}`, teamWorkerData);
+    }
 
-const update = (id, data) => axios.put(`${API_URL}/${id}`, data);
-
-const remove = (id) => axios.delete(`${API_URL}/${id}`);
-
-export default {
-    getAll,
-    get,
-    create,
-    update,
-    remove
-};
+    deleteTeamWorker(teamWorkerId){
+        return http.delete(this.endpoint, teamWorkerId);
+    }
+}

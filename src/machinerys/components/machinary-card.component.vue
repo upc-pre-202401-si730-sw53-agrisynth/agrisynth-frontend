@@ -4,7 +4,7 @@
       <p><strong>{{ machinery.name }}</strong></p>
       <p><strong>Price: {{ machinery.price }}</strong></p>
       <div class="image-container">
-        <img :src="machinery.image" alt="Machinery Image" class="machinery-image" />
+        <img :src="machinery.imageUrl" alt="Machinery Image" class="machinery-image" />
       </div>
       <div class="card-buttons">
         <pv-button @click="showPurchaseDialog">Buy</pv-button>

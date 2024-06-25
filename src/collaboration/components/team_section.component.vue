@@ -1,6 +1,4 @@
 <script>
-import teamService from "@/collaboration/services/team.api.service.js";
-
 export default{
   name:'team-section',
 
@@ -19,6 +17,12 @@ export default{
       type: Object,
       required: true,
     },
+
+    //Team Service
+    teamApiService: {
+      type: Object,
+      required: true,
+    }
   },
 
   methods: {
@@ -35,9 +39,9 @@ export default{
     async submitTeam(){
       try {
         if (this.editingTeam) {
-          await teamService.update(this.teamForm.value.id, this.localTeamForm);
+          await this.teamApiService.updateTeam(this.teamForm.value.id, this.localTeamForm);
         } else {
-          await teamService.create(this.localTeamForm);
+          await this.teamApiService.createTeam(this.localTeamForm);
         }
         await this.callFetchData();
         this.cancelEditTeam();
@@ -60,7 +64,7 @@ export default{
 
     async deleteTeam(id) {
       try {
-        await teamService.remove(id);
+        await this.teamApiService.deleteTeam(id);
         await this.callFetchData();
       } catch (error) {
         console.error('Error deleting team:', error);

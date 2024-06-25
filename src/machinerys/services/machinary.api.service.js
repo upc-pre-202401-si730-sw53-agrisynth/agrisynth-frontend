@@ -1,13 +1,8 @@
-import axios from "axios";
+import http from "@/shared/services/http-common.js";
 
-const BASE_URL = "http://localhost:3000/api/v1";
-
-export const getAllMachinary = async () => {
-  try {
-    const response = await axios.get(`${BASE_URL}/machinery`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching machinery:", error);
-    throw error;
+export class MachineryApiService{
+  endpoint = '/machinerys';
+  getAllMachinery(){
+    return http.get(this.endpoint);
   }
-};
+}

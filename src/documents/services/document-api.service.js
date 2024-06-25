@@ -8,15 +8,15 @@ export class DocumentApiService{
         return http.get(this.endpoint);
     }
 
-    uploadDocument(){
-        return http.post(this.endpoint);
+    uploadDocument(documentData){
+        return http.post(this.endpoint, documentData);
     }
 
-    updateDocument(){
-        return http.put(this.endpoint);
+    updateDocument(documentId, documentData){
+        return http.put(`${this.endpoint}/${documentId}`, documentData);
     }
 
-    deleteDocument(){
-        return http.delete(this.endpoint);
+    deleteDocument(documentId){
+        return http.delete(`${this.endpoint}/${documentId}`);
     }
 }

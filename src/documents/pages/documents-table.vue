@@ -25,13 +25,14 @@ export default defineComponent({
     };
   },
   async mounted() {
+    this.documentService = new DocumentApiService();
     await this.fetchDocuments();
   },
   methods: {
     async fetchDocuments() {
       try {
-        this.documentService = new DocumentApiService();
-        this.documents = this.documentService.getAllDocuments();
+        const response = await this.documentService.getAllDocuments();
+        this.documents = response.data;
       } catch (error) {
         console.error("Error fetching documents:", error);
       }
@@ -101,17 +102,20 @@ export default defineComponent({
 
     <!--Document Upload Dialog -->
     <documents-upload-dialog v-model:visible="isUploadDialogVisible" :fetchDocuments="fetchDocuments"
-                             @update="updateDocumentName" @close="isUploadDialogVisible = false"></documents-upload-dialog>
+                             @update="updateDocumentName" @close="isUploadDialogVisible = false"
+                              :documentService="documentService"></documents-upload-dialog>
 
     <!--Document Edit Dialog -->
     <documents-edit-dialog v-model:visible="isEditDialogVisible" :fetchDocuments="fetchDocuments"
                            :newDocumentName="newDocumentName" :selectedDocument="selectedDocument"
-                           @update="updateDocumentName" @close="isEditDialogVisible = false"></documents-edit-dialog>
+                           @update="updateDocumentName" @close="isEditDialogVisible = false"
+                           :documentService="documentService"></documents-edit-dialog>
 
     <!--Document Delete Dialog -->
     <documents-delete-dialog v-model:visible="isDeleteDialogVisible" :fetchDocuments="fetchDocuments"
                              :selectedDocument="selectedDocument"
-                             @update="updateDocumentName" @close="isDeleteDialogVisible = false"></documents-delete-dialog>
+                             @update="updateDocumentName" @close="isDeleteDialogVisible = false"
+                             :documentService="documentService"></documents-delete-dialog>
 
     <!--To do(maybe): Take out "dialog" from the name of these components -->
 </template>

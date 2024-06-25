@@ -23,7 +23,8 @@ export default defineComponent({
   async mounted() {
     try {
       this.resourceService = new ResourceApiService();
-      this.resources = await this.resourceService.getAllResources();
+      const response = await this.resourceService.getAllResources()
+      this.resources = response.data;
     } catch (error) {
       console.error("Error al obtener los recursos:", error);
     }

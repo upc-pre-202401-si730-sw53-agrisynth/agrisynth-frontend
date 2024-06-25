@@ -3,7 +3,7 @@ import http from '@/shared/services/http-common.js'
 // Método para obtener todos los terrenos
 
 export class ResourceApiService{
-  endpoint = '/resources';
+  endpoint = '/resource-items';
   getAllResources(){
     return http.get(this.endpoint);
   }
@@ -12,7 +12,7 @@ export class ResourceApiService{
     return http.get(`${this.endpoint}/${resourceId}`)
   }
 
-  createResouce(resourceData){
+  createResource(resourceData){
     return http.post(this.endpoint,resourceData);
   }
 
