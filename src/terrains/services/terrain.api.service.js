@@ -1,78 +1,25 @@
+import http from "@/shared/services/http-common.js";
 
-import axios from "axios";
-
-// URL base para la API falsa de terrenos
-const BASE_URL = "http://localhost:3000";
-
-// Método para obtener todos los terrenos
-export const getAllTerrains = async () => {
-  try {
-    const response = await axios.get(`${BASE_URL}/terrains`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching terrains:", error);
-    throw error;
+export class TerrainApiService{
+  endpoint = "/terrains";
+  getAllTerrains(){
+    return http.get(this.endpoint);
   }
-};
 
-// Método para obtener un terreno por su ID
-export const getTerrainById = async (terrainId) => {
-  try {
-    const response = await axios.get(`${BASE_URL}/terrains`);
-    const terrains = response.data;
-    const terrain = terrains.find((terrain) => terrain.id === terrainId);
-    if (!terrain) {
-      return false;
-    }
-    return terrain;
-  } catch (error) {
-    console.error(`Error fetching terrain with ID ${terrainId}:`, error);
-    throw error;
+  getTerrainById(terrainId) {
+    return http.get(`${this.endpoint}/${terrainId}`);
   }
-};
 
-// Método para crear un nuevo terreno
-export const createTerrain = async (terrainData) => {
-  try {
-    const response = await axios.post(`${BASE_URL}/terrains`, terrainData);
-    return response.data;
-  } catch (error) {
-    console.error("Error creating terrain:", error);
-    throw error;
+  createTerrain(terrainData){
+    return http.post(this.endpoint, terrainData);
   }
-};
 
-// Método para actualizar un terreno existente
-export const updateTerrain = async (terrainId, terrainData) => {
-  try {
-    const response = await axios.put(
-        `${BASE_URL}/terrains/${terrainId}`,
-        terrainData
-    );
-    return response.data;
-  } catch (error) {
-    console.error(`Error updating terrain with ID ${terrainId}:`, error);
-    throw error;
+  updateTerrain (terrainId, terrainData){
+    return http.put(`${this.endpoint}/${terrainId}`, terrainData);
   }
-};
 
-// Método para eliminar un terreno por su ID
-export const deleteTerrain = async (terrainId) => {
-  try {
-    const response = await axios.delete(`${BASE_URL}/terrains/${terrainId}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error deleting terrain with ID ${terrainId}:`, error);
-    throw error;
+  deleteTerrain(terrainId){
+    return http.delete(`${this.endpoint}/${terrainId}`)
   }
-};
 
-/*export const getTerrainById = async (terrainId) => {
-  try {
-    const response = await axios.get(`${BASE_URL}/terrains/${terrainId}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching terrain with ID ${terrainId}:`, error);
-    throw error;
-  }
-};*/
+}

@@ -1,6 +1,4 @@
 <script>
-import teamWorkerService from "@/collaboration/services/teamWorker.api.service.js";
-
 export default{
   name:'team-workers-section',
 
@@ -20,6 +18,12 @@ export default{
       type: Object,
       required: true,
     },
+
+    //Team Worker Service
+    teamWorkerApiService: {
+      type: Object,
+      required: true,
+    }
   },
 
   async mounted() {
@@ -49,7 +53,7 @@ export default{
           teamId: this.localTeamWorkerForm.teamId.id,
           workerId: this.localTeamWorkerForm.workerId.id
         };
-        await teamWorkerService.create(newTeamWorker);
+        await this.teamWorkerApiService.createTeamWorker(newTeamWorker);
         await this.callFetchData();
         this.cancelAddTeamWorker();
       } catch (error) {
@@ -64,7 +68,7 @@ export default{
 
     async deleteTeamWorker(id) {
       try {
-        await teamWorkerService.remove(id);
+        await this.teamWorkerApiService.deleteTeamWorker(id);
         await this.callFetchData();
       } catch (error) {
         console.error('Error deleting team worker:', error);
@@ -177,7 +181,6 @@ export default{
     margin: 1rem -2rem 1rem -2rem;
   }
 
-  .edit-button,
   .save-button,
   .cancel-button,
   .delete-button {

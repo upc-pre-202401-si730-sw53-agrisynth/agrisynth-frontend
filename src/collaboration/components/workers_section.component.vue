@@ -1,5 +1,4 @@
 <script>
-import workerService from "@/collaboration/services/worker.api.service.js";
 
 export default{
   name:'workers-section',
@@ -19,6 +18,12 @@ export default{
       type: Object,
       required: true,
     },
+
+    //Worker Service
+    workerApiService: {
+      type: Object,
+      required: true,
+    }
   },
 
   async mounted() {
@@ -35,9 +40,9 @@ export default{
     async submitWorker() {
       try {
         if (this.editingWorker){
-          await workerService.update(this.workerForm.value.id, this.localWorkerForm);
+          await this.workerApiService.updateWorker(this.workerForm.value.id, this.localWorkerForm);
         } else {
-          await workerService.create(this.localWorkerForm);
+          await this.workerApiService.createWorker(this.localWorkerForm);
         }
         await this.callFetchData();
         this.cancelEditWorker();
@@ -60,7 +65,7 @@ export default{
 
     async deleteWorker(id) {
       try {
-        await workerService.remove(id);
+        await this.workerApiService.deleteWorker(id);
         await this.callFetchData();
       } catch (error) {
         console.error('Error deleting worker:', error);
@@ -112,10 +117,6 @@ export default{
 <style scoped>
 .worker-section-card{
   margin: 1.5rem 0 1.5rem 0;
-}
-
-.mobile-add-button{
-  display:none;
 }
 
 .title-container{

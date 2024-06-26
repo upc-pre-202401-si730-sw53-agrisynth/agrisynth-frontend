@@ -1,6 +1,6 @@
 <script>
 import { defineComponent} from "vue";
-import { getAllResources } from "@/resources/services/resource.api.service.js";
+import { ResourceApiService } from "@/resources/services/resource.api.service.js";
 import Resource_creation_dialog from "@/resources/components/resource-creation.dialog.vue";
 import Resource_edition_dialog from "@/resources/components/resource-edition.dialog.vue";
 import Resource_deletion_dialog from "@/resources/components/resource-deletion.dialog.vue";
@@ -15,11 +15,20 @@ export default defineComponent({
       isEditionDialogVisible: false,
       isDeletionDialogVisible: false,
       isCreationDialogVisible: false,
+
+      //Service
+      resourceService: null,
+
+      //Resource Data
+      resourceData: null,
+      resourceId: 0,
     };
   },
   async mounted() {
     try {
-      this.resources = await getAllResources();
+      this.resourceService = new ResourceApiService();
+      const response = await this.resourceService.getAllResources()
+      this.resources = response.data;
     } catch (error) {
       console.error("Error al obtener los recursos:", error);
     }
@@ -45,14 +54,14 @@ export default defineComponent({
           <pv-column field="purchase" header="Purchase Price($ ~ 1kg)"></pv-column>
           <pv-column field="sale" header="Sale Price ($ ~ 1kg)"></pv-column>
           <pv-column header="Opciones" style="display: flex; justify-content: center; gap: 1rem">
-            <template #body>
+            <template #body="slotProps">
               <div class="card flex justify-content-center">
                 <pv-button label="Edit" style="background-color:lightgreen;color:white;padding:0.5rem"
-                           @click="isEditionDialogVisible = true" />
+                           @click="isEditionDialogVisible = true; resourceData = slotProps.data; resourceId = slotProps.data.id"/>
               </div>
               <div class="button-group">
                 <pv-button label="Delete" style="background-color:red;color:white;padding:0.5rem" severity="danger"
-                           @click="isDeletionDialogVisible = true" />
+                           @click="isDeletionDialogVisible = true; resourceData = slotProps.data; resourceId = slotProps.data.id" />
               </div>
             </template>
           </pv-column>
@@ -63,13 +72,18 @@ export default defineComponent({
 
   <!--Resource Creation Dialog-->
   <resource_creation_dialog v-model:visible="isCreationDialogVisible"
-                            @update:visible="isCreationDialogVisible = $event"></resource_creation_dialog>
+                            @update:visible="isCreationDialogVisible = $event"
+                            :resourceService="resourceService"></resource_creation_dialog>
   <!--Resource Edition Dialog-->
   <resource_edition_dialog v-model:visible="isEditionDialogVisible"
-                           @update:visible="isEditionDialogVisible = $event"></resource_edition_dialog>
+                           @update:visible="isEditionDialogVisible = $event"
+                           :resourceService="resourceService"
+                           :resourceId="resourceId"></resource_edition_dialog>
   <!--Resource Deletion Dialog-->
   <resource_deletion_dialog v-model:visible="isDeletionDialogVisible"
-                            @update:visible="isDeletionDialogVisible = $event"></resource_deletion_dialog>
+                            @update:visible="isDeletionDialogVisible = $event"
+                            :resourceService="resourceService"
+                            :resourceId="resourceId" :resourceData="resourceData"></resource_deletion_dialog>
 </template>
 
 <style scoped>

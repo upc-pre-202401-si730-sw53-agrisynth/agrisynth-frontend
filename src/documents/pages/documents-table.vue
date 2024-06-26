@@ -1,6 +1,6 @@
 <script>
 import { defineComponent, ref } from "vue";
-import { getAllDocuments, deleteDocument } from "@/documents/services/document-api.service.js";
+import {DocumentApiService} from "@/documents/services/document-api.service.js"
 import Resource_creation_dialog from "@/resources/components/resource-creation.dialog.vue";
 import DocumentsUploadDialog from "@/documents/components/documents_upload.dialog.vue";
 import DocumentsEditDialog from "@/documents/components/documents_edit.dialog.vue";
@@ -18,15 +18,21 @@ export default defineComponent({
       isDeleteDialogVisible: false,
       newDocumentName: "",
       refresh: ref(false),
+
+      //Services
+      documentService: null,
+
     };
   },
   async mounted() {
+    this.documentService = new DocumentApiService();
     await this.fetchDocuments();
   },
   methods: {
     async fetchDocuments() {
       try {
-        this.documents = await getAllDocuments();
+        const response = await this.documentService.getAllDocuments();
+        this.documents = response.data;
       } catch (error) {
         console.error("Error fetching documents:", error);
       }
@@ -96,17 +102,20 @@ export default defineComponent({
 
     <!--Document Upload Dialog -->
     <documents-upload-dialog v-model:visible="isUploadDialogVisible" :fetchDocuments="fetchDocuments"
-                             @update="updateDocumentName" @close="isUploadDialogVisible = false"></documents-upload-dialog>
+                             @update="updateDocumentName" @close="isUploadDialogVisible = false"
+                              :documentService="documentService"></documents-upload-dialog>
 
     <!--Document Edit Dialog -->
     <documents-edit-dialog v-model:visible="isEditDialogVisible" :fetchDocuments="fetchDocuments"
                            :newDocumentName="newDocumentName" :selectedDocument="selectedDocument"
-                           @update="updateDocumentName" @close="isEditDialogVisible = false"></documents-edit-dialog>
+                           @update="updateDocumentName" @close="isEditDialogVisible = false"
+                           :documentService="documentService"></documents-edit-dialog>
 
     <!--Document Delete Dialog -->
     <documents-delete-dialog v-model:visible="isDeleteDialogVisible" :fetchDocuments="fetchDocuments"
                              :selectedDocument="selectedDocument"
-                             @update="updateDocumentName" @close="isDeleteDialogVisible = false"></documents-delete-dialog>
+                             @update="updateDocumentName" @close="isDeleteDialogVisible = false"
+                             :documentService="documentService"></documents-delete-dialog>
 
     <!--To do(maybe): Take out "dialog" from the name of these components -->
 </template>

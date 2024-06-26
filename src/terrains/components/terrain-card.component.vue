@@ -16,7 +16,7 @@ export default {
 <template>
   <pv-card class="pv-card-container" @click="handleClick">
     <template #header>
-      <img class="image" :alt="terrain.name" :src="terrain.image">
+      <img class="image" :alt="terrain.name" :src="terrain.imageUrl">
     </template>
     <template #title>{{ terrain.name }}</template>
   </pv-card>

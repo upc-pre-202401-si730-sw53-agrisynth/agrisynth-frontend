@@ -1,5 +1,4 @@
 <script>
-import {uploadDocument} from "@/documents/services/document-api.service.js";
 export default{
   name: 'documents-upload-dialog',
 
@@ -13,6 +12,13 @@ export default{
 
   props: {
     fetchDocuments: Function,
+
+    //Services
+    documentService: {
+      type: Object,
+      required: true,
+    }
+
   },
 
   methods: {
@@ -29,7 +35,7 @@ export default{
             console.log(pair[0]+ ', ' + pair[1]);
           }
 
-          await uploadDocument(formData);
+          await this.documentService.uploadDocument(formData);
           await this.callFetchDocuments();
           this.closeDialog();
         } catch (error) {
