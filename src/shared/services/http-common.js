@@ -1,7 +1,7 @@
 import axios from "axios";
 import {authenticationInterceptor} from "@/iam/services/authentication.interceptor.js";
 
-const API_BASE_URL = "http://localhost:7250/api/v1";
+const API_BASE_URL = "https://agrisynthservice-production.up.railway.app/api/v1";
 
 const http = axios.create({
     baseURL: API_BASE_URL,
