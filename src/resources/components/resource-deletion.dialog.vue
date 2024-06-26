@@ -1,15 +1,36 @@
 <script>
+import {ResourceApiService} from "@/resources/services/resource.api.service.js";
+
 export default{
   name: 'resource_deletion_dialog',
   props: {
     visible: {
       type: Boolean,
       required: true
-    }
+    },
+    resourceService:{
+      type: Object,
+      required: true,
+    },
+
+    resourceData: {
+      type: Object,
+      required: true,
+    },
+
+    resourceId: {
+      type: [String, Number],
+      required: true
+    },
   },
   methods: {
     closeDialog() {
       this.$emit('update:visible', false);
+    },
+
+    resourceDeletion(){
+      this.resourceService.deleteResource(this.resourceId, this.resourceData);
+      this.closeDialog();
     }
   }
 }
@@ -23,7 +44,7 @@ export default{
     </div>
     <div class="flex justify-content-end gap-2">
       <pv-button severity="danger" style="background-color:red;color:white;padding:0.5rem" label="Yes"
-                 @click="closeDialog"></pv-button>
+                 @click="resourceDeletion"></pv-button>
       <pv-button label="No" style="background-color:lightgreen;color:white;padding:0.5rem" @click="closeDialog"></pv-button>
     </div>
   </pv-dialog>
